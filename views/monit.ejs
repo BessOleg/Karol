@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Document</title>
-    <link href="public/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="public/css/style.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </head>
@@ -20,12 +20,16 @@
     <option value="4">test 3</option>
 </select>
 
-<div><canvas id="Canvas"></canvas></div>
+<div>
+    <canvas id="Canvas"></canvas>
+</div>
 <div id="interface">
 
     <button id="go" onmousedown="move()" onmouseup="clearmove()" ontouchstart="move()">GO</button>
     <button id="turn" onmousedown="turn()">turn</button>
-    <div> <button id="token" onmousedown="token()" ontouchstart="token()">token</button></div>
+    <div>
+        <button id="token" onmousedown="token()" ontouchstart="token()">token</button>
+    </div>
 </div>
 <footer>
 </footer>
@@ -34,5 +38,6 @@
 <script src="public/js/entity.js"></script>
 <script src="public/js/control.js"></script>
 <script src="public/js/worldgen.js"></script>
+<script src="public/js/render.js"></script>
 </body>
 </html>
