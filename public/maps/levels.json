@@ -1,0 +1,202 @@
+[
+  [
+    {
+      "width": 300,
+      "height": 240
+    },
+    {
+      "width": 1,
+      "height": 60,
+      "color": "red",
+      "x": 1,
+      "y": 0,
+      "type": "cube"
+    },
+    {
+      "width": 1,
+      "height": 180,
+      "color": "red",
+      "x": 5,
+      "y": 0,
+      "type": "cube"
+    },
+    {
+      "width": 1,
+      "height": 150,
+      "color": "red",
+      "x": 9,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 1,
+      "height": 60,
+      "color": "red",
+      "x": 1,
+      "y": 5,
+      "type": "cube"
+    },
+    {
+      "width": 240,
+      "height": 1,
+      "color": "red",
+      "x": 1,
+      "y": 7,
+      "type": "cube"
+    },
+    {
+      "width": 30,
+      "height": 90,
+      "color": "green",
+      "x": 2,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 60,
+      "height": 1,
+      "color": "red",
+      "x": 0,
+      "y": 4,
+      "type": "cube"
+    },
+    {
+      "width": 120,
+      "height": 1,
+      "color": "red",
+      "x": 5,
+      "y": 3,
+      "type": "cube"
+    },
+    {
+      "width": 30,
+      "height": 90,
+      "color": "green",
+      "x": 2,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 60,
+      "height": 60,
+      "color": "blue",
+      "x": 6,
+      "y": 4,
+      "type": "cube"
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "width": 300,
+      "height": 240
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "type": "image"
+    },
+    {
+      "width": 1,
+      "height": 180,
+      "color": "red",
+      "x": 3,
+      "y": 0,
+      "type": "cube"
+    },
+    {
+      "width": 30,
+      "height": 150,
+      "color": "green",
+      "x": 1,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 180,
+      "height": 1,
+      "color": "red",
+      "x": 3,
+      "y": 7,
+      "type": "cube"
+    },
+    {
+      "width": 180,
+      "height": 1,
+      "color": "red",
+      "x": 3,
+      "y": 6,
+      "type": "cube"
+    },
+    {
+      "width": 1,
+      "height": 150,
+      "color": "red",
+      "x": 9,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 1,
+      "height": 120,
+      "color": "red",
+      "x": 4,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 150,
+      "height": 1,
+      "color": "red",
+      "x": 4,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 30,
+      "height": 1,
+      "color": "red",
+      "x": 5,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 30,
+      "height": 1,
+      "color": "red",
+      "x": 7,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 90,
+      "height": 1,
+      "color": "red",
+      "x": 5,
+      "y": 4,
+      "type": "cube"
+    },
+    {
+      "width": 1,
+      "height": 90,
+      "color": "red",
+      "x": 5,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 1,
+      "height": 90,
+      "color": "red",
+      "x": 8,
+      "y": 2,
+      "type": "cube"
+    }
+  ],
+  [],
+  []
+]
