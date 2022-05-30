@@ -1,35 +1,44 @@
-*{
-    margin:0;
+* {
+    margin: 0;
 }
-body{
+
+body {
     background-color: rgba(116, 90, 208, 0.51);
 }
-canvas
-{
+
+canvas {
     float: left;
     background-color: rgba(211, 255, 255, 0.82);
     border-style: groove;
 }
 
-#interface{
+#interface {
     margin: 5px;
     background-color: darksalmon;
-    border-style:ridge;
+    border-style: ridge;
     float: left;
     padding: 5px;
 
 }
-header,footer{
+
+header, footer {
     border-style: outset;
     background-color: #2ed6d9;
-    height:30px;
-    width:100%;
-}
-footer{
-    position:fixed;
-    bottom:0px;
+    height: 30px;
+    width: 100%;
 }
 
-button{
+footer {
+    position: fixed;
+    bottom: 0px;
+}
+
+button {
     margin: 4px;
+}
+
+#im {
+    width: 32px;
+    height: 32px;
+    vertical-align: bottom;
 }
