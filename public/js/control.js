@@ -1,7 +1,7 @@
 var trn = 2; // стартовое направление персонажа
 
 //поворот персонажа
-function turn() {
+async function turn() {
     trn++;
     if (trn == 1) myGamePiece.image.src = "/public/assets/karol_left.png";
     if (trn == 2) myGamePiece.image.src = "/public/assets/karol_down.png";
@@ -13,7 +13,7 @@ function turn() {
 }
 
 //движение персонажа
-function move() {
+async function move() {
     switch (trn) {
         case 0:
             myGamePiece.speedY = -30 // up
@@ -28,7 +28,7 @@ function move() {
             myGamePiece.speedX = 30  // right
             break;
     }
-
+    myGamePiece.newPos();
 }
 
 //остановка персонажа
