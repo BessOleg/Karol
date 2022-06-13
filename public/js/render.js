@@ -6,7 +6,7 @@ function updateGameArea() {
         for (var i in bray) {
             bray[i].update()
         }
-    myGamePiece.newPos(); // перемишеие персонажа
+     // перемишеие персонажа
     coin.update(); // обновляем монетку
 
     myScore.text = "x:" + myGamePiece.x + " y:" + myGamePiece.y;
