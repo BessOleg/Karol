@@ -35,6 +35,9 @@ var myGameArea = {
         clearInterval(this.interval);
 
     }, netupdate: function () {
+        this.context.strokeStyle = "rgb(195,205,250)";
+        this.context.stroke();
+
         for (var x = 0.5; x < this.canvas.width; x += 30) {
             this.context.moveTo(x, 0);
             this.context.lineTo(x, this.canvas.height);
@@ -44,7 +47,6 @@ var myGameArea = {
             this.context.moveTo(0, y);
             this.context.lineTo(this.canvas.width, y);
         }
-        this.context.strokeStyle = "rgba(139,113,113,0.41)";
-        this.context.stroke();
+
     }
 }

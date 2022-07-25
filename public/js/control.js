@@ -14,6 +14,13 @@ async function turn() {
 
 //движение персонажа
 async function move() {
+    
+    /*try {
+        eval();
+    }catch (e) {
+        alert(e);
+    }*/
+
     switch (trn) {
         case 0:
             myGamePiece.speedY = -30 // up
