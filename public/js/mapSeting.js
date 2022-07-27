@@ -5,17 +5,17 @@ var myGameArea = {
 
         if (filemap == true) {
             console.log("client")
-            this.canvas.width = filles == undefined ? 480 : filles[0].width + filles[0].width % 30;
-            this.canvas.height = filles == undefined ? 270 : filles[0].height + filles[0].height % 30;
+            this.canvas.width = filles == undefined ? 480 : filles[0].width + filles[0].width % shagX;
+            this.canvas.height = filles == undefined ? 270 : filles[0].height + filles[0].height % shagY;
 
         } else {
             console.log("server")
-            this.canvas.width = selectI >= 2 ? 480 : filles[selectI][0].width + filles[selectI][0].width % 30;
-            this.canvas.height = selectI >= 2 ? 270 : filles[selectI][0].height + filles[selectI][0].height % 30;
+            this.canvas.width = selectI >= 2 ? shagX*5: filles[selectI][0].width *shagX;
+            this.canvas.height = selectI >= 2 ? shagY*5 : filles[selectI][0].height *shagY;
 
         }
         this.context = this.canvas.getContext("2d");
-        this.interval = setInterval(updateGameArea, 85);
+        this.interval = setInterval(updateGameArea, 30);
 
         flag = false;
         button.innerText = "stop";
@@ -35,18 +35,24 @@ var myGameArea = {
         clearInterval(this.interval);
 
     }, netupdate: function () {
-        this.context.strokeStyle = "rgb(195,205,250)";
-        this.context.stroke();
+        this.context.strokeStyle = "rgba(16,206,202,0.56)";
+        this.context.beginPath();
 
-        for (var x = 0.5; x < this.canvas.width; x += 30) {
+        for (var x = 0; x < this.canvas.width; x += shagX) {
+
             this.context.moveTo(x, 0);
             this.context.lineTo(x, this.canvas.height);
+
         }
 
-        for (var y = 0.5; y < this.canvas.height; y += 30) {
+        for (var y = 0; y < this.canvas.height; y += shagY) {
+
             this.context.moveTo(0, y);
             this.context.lineTo(this.canvas.width, y);
+
+
         }
+        this.context.stroke();
 
     }
 }

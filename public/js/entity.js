@@ -13,7 +13,7 @@ function component(width, height, color, x, y, type) {
 
     this.update = function () {
         ctx = myGameArea.context;
-
+        ctx.beginPath();
         ctx.globalAlpha = 1; // прозрачность
 
         if (this.type == "text") {
@@ -68,26 +68,26 @@ function component(width, height, color, x, y, type) {
                     case 0: { // up
                         if ((myleft >= otherleft && myleft <= otherright) && (myright >= otherleft && myright <= otherright) && (mytop >= othertop && mytop <= otherbottom)) {
                             ttn = 0;
-                        } else ttn = -30
+                        } else ttn = -shagY
 
                     }
                         break;
                     case 1: { // left
                         if ((mytop >= othertop && mytop <= otherbottom) && (mybottom >= othertop && mybottom <= otherbottom) && (myleft >= otherleft && myleft <= otherright)) {
                             ttn = 0;
-                        } else ttn = -30
+                        } else ttn = -shagX
                     }
                         break;
                     case 2: { // down
                         if ((myleft >= otherleft && myleft <= otherright) && (myright >= otherleft && myright <= otherright) && (mybottom >= othertop && mybottom <= otherbottom)) {
                             ttn = 0;
-                        } else ttn = 30
+                        } else ttn = shagY
                     }
                         break;
                     case 3: { // right
                         if ((mytop >= othertop && mytop <= otherbottom) && (mybottom >= othertop && mybottom <= otherbottom) && (myright >= otherleft && myright <= otherright)) {
                             ttn = 0;
-                        } else ttn = 30
+                        } else ttn = shagX
                     }
                         break;
                 }

@@ -1,4 +1,5 @@
 var myGamePiece, coin, myScore, filles, bray = [], flag = true, filemap = false, selectI;
+var shagX=Math.round(window.innerWidth/22 ),shagY=Math.round( shagY=window.innerHeight/14)
 var button = $("#start")[0];
 var input = $("#filegame")[0];
 
@@ -14,6 +15,7 @@ async function selload() {
         filles = JSON.parse(xhr.responseText);
     }
     button.removeAttribute('disabled');
+   // startGame();
 }
 
 input.addEventListener('change', async function () {
