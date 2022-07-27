@@ -5,8 +5,8 @@ var myGameArea = {
 
         if (filemap == true) {
             console.log("client")
-            this.canvas.width = filles == undefined ? 480 : filles[0].width + filles[0].width % shagX;
-            this.canvas.height = filles == undefined ? 270 : filles[0].height + filles[0].height % shagY;
+            this.canvas.width = filles == undefined ? shagX*5 : filles[0].width + filles[0].width % shagX;
+            this.canvas.height = filles == undefined ? shagX*5 : filles[0].height + filles[0].height % shagY;
 
         } else {
             console.log("server")
@@ -26,7 +26,7 @@ var myGameArea = {
         bray = [];
         flag = true;
         trn = 2;
-        filles = null;
+       // filles = null;
         button.setAttribute("disabled", true);
         if (filemap)
             filemap = false;
@@ -34,7 +34,19 @@ var myGameArea = {
         button.innerText = "start";
         clearInterval(this.interval);
 
-    }, netupdate: function () {
+    },newlvl:function () {
+        if(selectI < $("select")[0].length-1) {
+            selectI = $("select")[0].selectedIndex++;
+            startGame();
+            startGame();
+        }
+        else {
+            selectI = $("select")[0].selectedIndex= 0;
+            startGame();
+            startGame();
+        }
+    }
+    , netupdate: function () {
         this.context.strokeStyle = "rgba(16,206,202,0.56)";
         this.context.beginPath();
 

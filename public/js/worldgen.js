@@ -1,10 +1,14 @@
 //загрузка элементов мира
 
-function worldgen() {
-    if (filemap == true) {
+ function worldgen() {
+    if (filemap === true) {
         maps(filles);
     } else {
-        selload();
+        selload().then(data=> {
+
+            filles = data;
+          //  startGame();
+        });
         maps(filles[selectI]);
     }
 
@@ -22,13 +26,13 @@ function maps(map) {
 function generation(files) {
     if (files)
         for (var i in files) {
-            if (files[i].type == "cube") {
+            if (files[i].type === "cube") {
                 bray.push(new component(
-                    files[i].width==0?1:files[i].width*shagX,
-                    files[i].height==0?1:files[i].height*shagY,
+                    files[i].width===0?2:files[i].width*shagX,
+                    files[i].height===0?2:files[i].height*shagY,
                     files[i].color, files[i].x * shagX, files[i].y * shagY, files[i].type));
             }
-            if (files[i].type == "image") {
+            if (files[i].type === "image") {
                 coin = new component(shagX, shagY, "/public/assets/coin.png", files[i].x * shagX, files[i].y * shagY, "image");
             }
         }

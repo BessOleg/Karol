@@ -58,7 +58,8 @@ function token() {
     } else if (x >= coin.x && x <= coin.x + coin.width && y >= coin.y && y <= coin.y + coin.height) {
         trn = 2;
         myGamePiece.image.src = "/public/assets/karol.png";
-        coin.height = 0;
-        coin.width = 0;
+        myGameArea.newlvl();
+      //  coin.height = 0;
+      //  coin.width = 0;
     }
 }
