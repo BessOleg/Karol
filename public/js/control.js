@@ -1,8 +1,9 @@
 let trn = 2; // стартовое направление персонажа
 
 //поворот персонажа
-async function turn() {
-    trn++;
+//
+ function turn() {
+     trn++;
     if (trn === 1) myGamePiece.image.src = "/public/assets/karol_left.png";
     if (trn === 2) myGamePiece.image.src = "/public/assets/karol_down.png";
     if (trn === 3) myGamePiece.image.src = "/public/assets/karol_right.png";
@@ -13,14 +14,13 @@ async function turn() {
 }
 
 //движение персонажа
-async function move() {
+ function move() {
 
     /*try {
         eval();
     }catch (e) {
         alert(e);
     }*/
-
     switch (trn) {
         case 0:
             myGamePiece.speedY = -shagY // up
@@ -35,7 +35,8 @@ async function move() {
             myGamePiece.speedX = shagX  // right
             break;
     }
-    myGamePiece.newPos();
+  myGamePiece.newPos();
+     clearmove();
 }
 
 //остановка персонажа
@@ -58,8 +59,10 @@ function token() {
     } else if (x >= coin.x && x <= coin.x + coin.width && y >= coin.y && y <= coin.y + coin.height) {
         trn = 2;
         myGamePiece.image.src = "/public/assets/karol.png";
-        myGameArea.newlvl();
-      //  coin.height = 0;
-      //  coin.width = 0;
+        coin.height = 0;
+        coin.width = 0;
+        setTimeout(myGameArea.newlvl, 3000);
+        // myGameArea.newlvl()
+
     }
 }

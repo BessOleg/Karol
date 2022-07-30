@@ -37,14 +37,18 @@ var myGameArea = {
     },newlvl:function () {
         if(selectI < $("select")[0].length-1) {
             selectI = $("select")[0].selectedIndex++;
-            startGame();
-            startGame();
+            coin.x = myGamePiece.x;
+            coin.y = myGamePiece.y;
+           // setTimeout(startGame,3000)
+          //  setTimeout(startGame,3000)
         }
         else {
             selectI = $("select")[0].selectedIndex= 0;
-            startGame();
-            startGame();
+          //  setTimeout(startGame,3000)
+          //  setTimeout(startGame,3000)
         }
+        startGame()
+        startGame()
     }
     , netupdate: function () {
         this.context.strokeStyle = "rgba(16,206,202,0.56)";

@@ -7,25 +7,31 @@ body {
 }
 
 canvas {
-    float: left;
+    display: block;
+    margin: 5px auto;
     background-color: rgba(211, 255, 255, 0.82);
     border-style: groove;
 }
 
-#interface {
+#interface{
+    float: right;
     margin: 5px;
     background-color: darksalmon;
     border-style: ridge;
-    float: left;
     padding: 5px;
 
+}
+.code{
+
+    margin: 5px;
+    background-color: #9fd377;
+    border-style: ridge;
+    padding: 5px;
 }
 
 header, footer {
     border-style: outset;
     background-color: #2ed6d9;
-    height: 30px;
-    width: 100%;
 }
 
 footer {
@@ -43,4 +49,11 @@ button {
     width: 32px;
     height: 32px;
     vertical-align: bottom;
+}
+#conteiner{
+    margin: 5px auto;
+    display: ruby-base;
+}
+.code>h4,.code>h5{
+    text-align: center;
 }
