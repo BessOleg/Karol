@@ -2,41 +2,46 @@ let trn = 2; // стартовое направление персонажа
 
 //поворот персонажа
 //
- function turn() {
-     trn++;
-    if (trn === 1) myGamePiece.image.src = "/public/assets/karol_left.png";
-    if (trn === 2) myGamePiece.image.src = "/public/assets/karol_down.png";
-    if (trn === 3) myGamePiece.image.src = "/public/assets/karol_right.png";
-    if (trn > 3) {
-        trn = 0;
-        myGamePiece.image.src = "/public/assets/karol_up.png";
-    }
+function turn() {
+
+
+    setTimeout(() => {
+        trn++;
+        if (trn === 1) myGamePiece.image.src = "/public/assets/karol_left.png";
+        if (trn === 2) myGamePiece.image.src = "/public/assets/karol_down.png";
+        if (trn === 3) myGamePiece.image.src = "/public/assets/karol_right.png";
+        if (trn > 3) {
+            trn = 0;
+            myGamePiece.image.src = "/public/assets/karol_up.png";
+        }
+    }, timeset);
+    if (timeflag)
+        timeset += timestep;
 }
 
 //движение персонажа
- function move() {
+function move() {
+    setTimeout(() => {
+        switch (trn) {
+            case 0:
+                myGamePiece.speedY = -shagY // up
+                break;
+            case 2:
+                myGamePiece.speedY = shagY // down
+                break;
+            case 1:
+                myGamePiece.speedX = -shagX  // left
+                break;
+            case 3:
+                myGamePiece.speedX = shagX  // right
+                break;
+        }
+        myGamePiece.newPos();
+        clearmove();
+    }, timeset)
 
-    /*try {
-        eval();
-    }catch (e) {
-        alert(e);
-    }*/
-    switch (trn) {
-        case 0:
-            myGamePiece.speedY = -shagY // up
-            break;
-        case 2:
-            myGamePiece.speedY = shagY // down
-            break;
-        case 1:
-            myGamePiece.speedX = -shagX  // left
-            break;
-        case 3:
-            myGamePiece.speedX = shagX  // right
-            break;
-    }
-  myGamePiece.newPos();
-     clearmove();
+    if (timeflag)
+        timeset += timestep;
 }
 
 //остановка персонажа

@@ -100,7 +100,6 @@ function component(width, height, color, x, y, type) {
                     return ttn;
                 }
             }
-            console.log(ttn);
             return ttn;
         }
     }

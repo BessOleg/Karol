@@ -12,7 +12,6 @@ function updateGameArea() {
     myScore.text = "x:" + myGamePiece.x + " y:" + myGamePiece.y;
 
     myGamePiece.update(); // обновляем персонажа
-    console.log(myGamePiece.x," ",myGamePiece.y)
     myScore.update(); // обновляем отображение координат перемишения
 
 
