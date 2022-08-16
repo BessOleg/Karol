@@ -7,7 +7,8 @@ The whole project is developed as a web resource and javascript is used to progr
 
 -------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------
-files and folders:
+
+# files and folders:
 
 public - folder with provided static files on the server
 
@@ -17,4 +18,4 @@ assets - folder with used resources, currently an image
    
 css - folder containing css files to customize appearance
    
-js is a folder with all scripts: map generation, rendering and control.
+js - is a folder with all scripts: map generation, rendering and control.
