@@ -3,8 +3,6 @@ let trn = 2; // стартовое направление персонажа
 //поворот персонажа
 //
 function turn() {
-
-
     setTimeout(() => {
         trn++;
         if (trn === 1) myGamePiece.image.src = "/public/assets/karol_left.png";
@@ -17,6 +15,7 @@ function turn() {
     }, timeset);
     if (timeflag)
         timeset += timestep;
+
 }
 
 //движение персонажа
@@ -39,7 +38,6 @@ function move() {
         myGamePiece.newPos();
         clearmove();
     }, timeset)
-
     if (timeflag)
         timeset += timestep;
 }
