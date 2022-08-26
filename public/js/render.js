@@ -2,17 +2,17 @@ function updateGameArea() {
 
     myGameArea.clear(); // чистим поле
     myGameArea.netupdate();// обновляем сетку
-    if (bray.length > 0) // обновляем все елементы если они есть
-        for (var i in bray) {
-            bray[i].update()
+    if (myConfig.wallMass.length > 0) // обновляем все елементы если они есть
+        for (var i in myConfig.wallMass) {
+            myConfig.wallMass[i].update()
         }
      // перемишеие персонажа
-    coin.update(); // обновляем монетку
+    myConfig.coin.update(); // обновляем монетку
 
-    myScore.text = "x:" + myGamePiece.x + " y:" + myGamePiece.y;
+    myConfig.myScore.text = "x:" + myConfig.myPlayr.x + " y:" + myConfig.myPlayr.y;
 
-    myGamePiece.update(); // обновляем персонажа
-    myScore.update(); // обновляем отображение координат перемишения
+    myConfig.myPlayr.update(); // обновляем персонажа
+    myConfig.myScore.update(); // обновляем отображение координат перемишения
 
 
 }
