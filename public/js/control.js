@@ -1,69 +1,67 @@
-let trn = 2; // стартовое направление персонажа
+
 
 //поворот персонажа
 //
 function turn() {
-    setTimeout(() => {
-        trn++;
-        if (trn === 1) myGamePiece.image.src = "/public/assets/karol_left.png";
-        if (trn === 2) myGamePiece.image.src = "/public/assets/karol_down.png";
-        if (trn === 3) myGamePiece.image.src = "/public/assets/karol_right.png";
-        if (trn > 3) {
-            trn = 0;
-            myGamePiece.image.src = "/public/assets/karol_up.png";
+        let playrTurn = {
+            up: "/public/assets/karol_up.png",
+            down: "/public/assets/karol_down.png",
+            left: "/public/assets/karol_left.png",
+            right: "/public/assets/karol_right.png"
         }
-    }, timeset);
-    if (timeflag)
-        timeset += timestep;
+        myConfig.levelTurn++;
+        if (myConfig.levelTurn === 1) myConfig.myPlayr.image.src = playrTurn.left
+        if (myConfig.levelTurn === 2) myConfig.myPlayr.image.src = playrTurn.down
+        if (myConfig.levelTurn === 3) myConfig.myPlayr.image.src = playrTurn.right
+        if (myConfig.levelTurn > 3) {
+            myConfig.levelTurn = 0;
+            myConfig.myPlayr.image.src = playrTurn.up;
+        }
 
 }
 
 //движение персонажа
 function move() {
-    setTimeout(() => {
-        switch (trn) {
+        switch (myConfig.levelTurn) {
             case 0:
-                myGamePiece.speedY = -shagY // up
+                myConfig.myPlayr.speedY = -myConfig.windowMap.y // up
                 break;
             case 2:
-                myGamePiece.speedY = shagY // down
+                myConfig.myPlayr.speedY = myConfig.windowMap.y // down
                 break;
             case 1:
-                myGamePiece.speedX = -shagX  // left
+                myConfig.myPlayr.speedX = -myConfig.windowMap.x  // left
                 break;
             case 3:
-                myGamePiece.speedX = shagX  // right
+                myConfig.myPlayr.speedX = myConfig.windowMap.x  // right
                 break;
         }
-        myGamePiece.newPos();
+        myConfig.myPlayr.newPos();
         clearmove();
-    }, timeset)
-    if (timeflag)
-        timeset += timestep;
 }
 
 //остановка персонажа
 function clearmove() {
-    myGamePiece.speedX = 0;
-    myGamePiece.speedY = 0;
+    myConfig.myPlayr.speedX = 0;
+    myConfig.myPlayr.speedY = 0;
 }
 
 // функцыя поднятия и вышвыривания монетки
 function token() {
-    let x = myGamePiece.x + (myGamePiece.width / 2)
-    let y = myGamePiece.y + (myGamePiece.height / 2)
+    let x = myConfig.myPlayr.x + (myConfig.myPlayr.width / 2)
+    let y = myConfig.myPlayr.y + (myConfig.myPlayr.height / 2)
 
-    if (coin.height === 0) {
-        coin.x = myGamePiece.x;
-        coin.y = myGamePiece.y;
-        coin.height = shagY;
-        coin.width = shagX;
+    if (myConfig.coin.height === 0) {
+        myConfig.coin.x = myConfig.myPlayr.x;
+        myConfig.coin.y = myConfig.myPlayr.y;
+        myConfig.coin.height = myConfig.windowMap.y;
+        myConfig.coin.width = myConfig.windowMap.x;
 
-    } else if (x >= coin.x && x <= coin.x + coin.width && y >= coin.y && y <= coin.y + coin.height) {
-        trn = 2;
-        myGamePiece.image.src = "/public/assets/karol.png";
-        coin.height = 0;
-        coin.width = 0;
+    } else if (x >= myConfig.coin.x && x <= myConfig.coin.x + myConfig.coin.width && y >= myConfig.coin.y && y <= myConfig.coin.y + myConfig.coin.height) {
+        myConfig.levelTurn = 2;
+       // myConfig.myPlayr.image.src = "/public/assets/karol.png";
+        myConfig.coin.height = 0;
+        myConfig.coin.width = 0;
         setTimeout(myGameArea.newlvl, 3000);
         // myGameArea.newlvl()
 

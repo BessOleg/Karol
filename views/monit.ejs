@@ -8,7 +8,7 @@
 
 </head>
 <header>
-    <button disabled id="start" onmousedown="startGame()">start</button>
+    <button disabled id="start">start</button>
     <input id="filegame" accept=".json" type="file" onchange="showFile(this)">
 
     <select name="user_profile_color_1" autofocus>
@@ -18,7 +18,7 @@
         <option value="4">no level</option>
     </select>
 </header>
-<body onresize="MyShag()">
+<body>
 
 <div id="conteiner"></div>
     <div id="interface">
@@ -47,7 +47,6 @@
 
 <footer>
 </footer>
-<script src="public/maps/levels.json"></script>
 <script src="public/js/config.js"></script>
 <script src="public/js/entity.js"></script>
 <script src="public/js/control.js"></script>
