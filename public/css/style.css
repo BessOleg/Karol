@@ -34,12 +34,18 @@ header, footer {
     background-color: #2ed6d9;
 }
 
+#start{
+    margin: 10px;
+    height: 30px;
+    width: 50px;
+}
+
 footer {
     position: fixed;
     bottom: 0px;
 }
 
-button {
+body button {
     margin: 4px;
     height: 60px;
     width: 150px;
@@ -52,7 +58,7 @@ button {
 }
 #conteiner{
     margin: 5px auto;
-    display: ruby-base;
+    display: flex;
 }
 .code>h4,.code>h5{
     text-align: center;

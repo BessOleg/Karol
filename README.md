@@ -19,3 +19,4 @@ assets - folder with used resources, currently an image
 css - folder containing css files to customize appearance
    
 js - is a folder with all scripts: map generation, rendering and control.
+
