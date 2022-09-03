@@ -10,6 +10,7 @@ var myConfig = {
 };
 myConfig.startStop.onmousedown = startGame;
 
+// авто изменение окна карти
 $("body")[0].onresize = myWindowMap = () => {
     myConfig.windowMap.x = Math.round((window.innerWidth / 320) * 20)
     myConfig.windowMap.y = Math.round((window.innerHeight / 480) * 35)
@@ -26,6 +27,7 @@ window.onload = () => {
     myWindowMap();
 }
 
+// функция запроса обекта карти у сервера
 function selload() {
     return new Promise((resolve) => {
         let xhr = new XMLHttpRequest();
@@ -43,7 +45,6 @@ function selload() {
 }
 
 myConfig.FileLoad.addEventListener('change', function () {
-
     let file = myConfig.FileLoad.files[0];
     let read = new FileReader();
     read.readAsText(file);
@@ -60,6 +61,7 @@ function startGame() {
 
 
     if (myConfig.boolstart) {
+        myConfig.idexSelect = $("select")[0].selectedIndex;
         worldgen();
         myGameArea.start();
 

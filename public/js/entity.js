@@ -36,7 +36,6 @@ function component(width, height, color, x, y, type) {
 
 
     this.newPos = function () {
-        //up
         if (myConfig.wallMass.length > 0) {
             if (this.speedX != 0) {
                 //console.log("crashX")
@@ -47,7 +46,6 @@ function component(width, height, color, x, y, type) {
                 this.y += crashWith();
             }
         } else {
-            // console.log("speed")
             this.x += this.speedX;
             this.y += this.speedY;
         }
@@ -56,6 +54,9 @@ function component(width, height, color, x, y, type) {
         if (this.x + this.width > myGameArea.canvas.width) this.x = myGameArea.canvas.width - this.width;
         if (this.y < 0) this.y = 0;
         if (this.y + this.height > myGameArea.canvas.height) this.y = myGameArea.canvas.height - this.height;
+        if (KarelCodeManag.timeflag) {
+            KarelCodeManag.stepKerrol.push({x: this.x, y: this.y});
+        }
     }
 }
 

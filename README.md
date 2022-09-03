@@ -21,7 +21,7 @@ config.js - this script receives and processes data to work with canvas
 
 entity.js - this script for creating and configuring objects inside the canvas
 
-index.js - server start file
+server.js - server start file
 
 packege.json - this file stores project information and requirements
 
