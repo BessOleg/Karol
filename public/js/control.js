@@ -1,5 +1,12 @@
 //поворот персонажа
 //
+let playrTurn = {
+    up: 'assets/karol_up.png',
+    down: "assets/karol_down.png",
+    left: "assets/karol_left.png",
+    right: "assets/karol_right.png"
+}
+
 function turn() {
     myConfig.levelTurn++;
     if (myConfig.levelTurn > 3) {
@@ -11,12 +18,6 @@ function turn() {
 }
 
 function turnImeg() {
-    let playrTurn = {
-        up: "assets/karol_up.png",
-        down: "assets/karol_down.png",
-        left: "assets/karol_left.png",
-        right: "assets/karol_right.png"
-    }
     if (myConfig.levelTurn === 1) myConfig.myPlayr.image.src = playrTurn.left
     if (myConfig.levelTurn === 2) myConfig.myPlayr.image.src = playrTurn.down
     if (myConfig.levelTurn === 3) myConfig.myPlayr.image.src = playrTurn.right

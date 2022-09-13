@@ -5,6 +5,9 @@
 body {
     background-color: rgba(116, 90, 208, 0.51);
 }
+#loading{
+    width: 100%;
+}
 
 canvas {
     display: block;

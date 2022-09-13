@@ -31,7 +31,7 @@ window.onload = () => {
 function selload() {
     return new Promise((resolve) => {
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', '/file');
+        xhr.open('POST', '/file');
 
         xhr.onload = () => {
             resolve(JSON.parse(xhr.responseText));
@@ -46,6 +46,7 @@ function selload() {
 
 myConfig.FileLoad.addEventListener('change', function () {
     let file = myConfig.FileLoad.files[0];
+    console.log(myConfig.FileLoad.files[0]);
     let read = new FileReader();
     read.readAsText(file);
     read.onload = () => {

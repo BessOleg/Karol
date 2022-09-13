@@ -10,7 +10,7 @@ function worldgen() {
 
 }
 
-function maps(map) {
+function  maps(map) {
     myConfig.myPlayr = new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/karol.png", 0, 0, "image");
     myConfig.myScore = new component("15px", "Consolas", "black", 60, 30, "text");
     myConfig.coin = new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", 0, 0, "image");
