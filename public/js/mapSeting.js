@@ -3,13 +3,13 @@ var myGameArea = {
     canvas: $("#Canvas")[0],
     start: function () {
 
-        if (myConfig.mapObj.mapFlag == true) {
-            console.log("client")
-            this.canvas.width = myConfig.mapObj.mapArray == undefined ? myConfig.windowMap.x * 5 : myConfig.mapObj.mapArray[0].width + myConfig.mapObj.mapArray[0].width % myConfig.windowMap.x;
-            this.canvas.height = myConfig.mapObj.mapArray == undefined ? myConfig.windowMap.y * 5 : myConfig.mapObj.mapArray[0].height + myConfig.mapObj.mapArray[0].height % myConfig.windowMap.y;
+        if (myConfig.mapObj.mapFlag === true) {
+            console.log("client");
+            this.canvas.width = myConfig.mapObj.mapArray === undefined ? myConfig.windowMap.x * 5 : myConfig.mapObj.mapArray[0].width + myConfig.mapObj.mapArray[0].width % myConfig.windowMap.x;
+            this.canvas.height = myConfig.mapObj.mapArray === undefined ? myConfig.windowMap.y * 5 : myConfig.mapObj.mapArray[0].height + myConfig.mapObj.mapArray[0].height % myConfig.windowMap.y;
 
         } else {
-            console.log("server")
+            console.log("server");
             this.canvas.width = myConfig.idexSelect >= 2 ? myConfig.windowMap.x * 5 : myConfig.mapObj.mapArray[myConfig.idexSelect][0].width * myConfig.windowMap.x;
             this.canvas.height = myConfig.idexSelect >= 2 ? myConfig.windowMap.y * 5 : myConfig.mapObj.mapArray[myConfig.idexSelect][0].height * myConfig.windowMap.y;
 
@@ -26,11 +26,11 @@ var myGameArea = {
         myConfig.wallMass = [];
         myConfig.boolstart = true;
         myConfig.levelTurn = 2;
-        myConfig.startStop.setAttribute("disabled", true);
+        myConfig.startStop.attr("disabled", true);
         if (myConfig.mapObj.mapFlag) {
             myConfig.mapObj.mapFlag = false;
         }
-        myConfig.startStop.removeAttribute('disabled');
+        myConfig.startStop.removeAttr('disabled');
         //selload();
         myConfig.startStop.innerText = "start";
         clearInterval(this.interval);

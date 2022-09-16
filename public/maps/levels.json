@@ -1,202 +1,171 @@
 [
   [
     {
-      "width": 10,
-      "height": 8
-    },
-    {
-      "width": 0,
-      "height": 2,
-      "color": "red",
-      "x": 1,
-      "y": 0,
-      "type": "cube"
-    },
-    {
-      "width": 0,
-      "height": 6,
-      "color": "red",
-      "x": 5,
-      "y": 0,
-      "type": "cube"
-    },
-    {
-      "width": 0,
+      "name": "easy 1",
+      "width": 5,
       "height": 5,
+      "end": 1
+    },
+    {
+      "width": 3,
+      "height": 0,
       "color": "red",
-      "x": 9,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "type": "cube"
     },
     {
       "width": 0,
-      "height": 2,
+      "height": 3,
       "color": "red",
       "x": 1,
-      "y": 5,
+      "y": 1,
       "type": "cube"
     },
     {
-      "width": 8,
-      "height": 0,
-      "color": "red",
       "x": 1,
-      "y": 7,
-      "type": "cube"
-    },
-    {
-      "width": 1,
-      "height": 3,
-      "color": "green",
-      "x": 2,
-      "y": 2,
-      "type": "cube"
-    },
-    {
-      "width": 2,
-      "height": 0,
-      "color": "red",
-      "x": 0,
-      "y": 4,
-      "type": "cube"
-    },
-    {
-      "width": 4,
-      "height": 0,
-      "color": "red",
-      "x": 5,
-      "y": 3,
-      "type": "cube"
-    },
-    {
-      "width": 1,
-      "height": 3,
-      "color": "green",
-      "x": 2,
-      "y": 2,
-      "type": "cube"
-    },
-    {
-      "width": 2,
-      "height": 2,
-      "color": "blue",
-      "x": 6,
-      "y": 4,
-      "type": "cube"
-    },
-    {
-      "x": 6,
       "y": 1,
       "type": "image"
     }
   ],
   [
     {
-      "width": 10,
-      "height": 8
-    },
-    {
-      "x": 6,
-      "y": 3,
-      "type": "image"
-    },
-    {
-      "width": 0,
-      "height": 6,
-      "color": "red",
-      "x": 3,
-      "y": 0,
-      "type": "cube"
-    },
-    {
-      "width": 1,
-      "height": 5,
-      "color": "green",
-      "x": 1,
-      "y": 2,
-      "type": "cube"
-    },
-    {
-      "width": 6,
-      "height": 0,
-      "color": "red",
-      "x": 3,
-      "y": 7,
-      "type": "cube"
-    },
-    {
-      "width": 6,
-      "height": 0,
-      "color": "red",
-      "x": 3,
-      "y": 6,
-      "type": "cube"
-    },
-    {
-      "width": 0,
-      "height": 5,
-      "color": "red",
-      "x": 9,
-      "y": 1,
-      "type": "cube"
-    },
-    {
-      "width": 0,
-      "height": 4,
-      "color": "red",
-      "x": 4,
-      "y": 1,
-      "type": "cube"
-    },
-    {
+      "name": "easy 2",
       "width": 5,
-      "height": 0,
-      "color": "red",
-      "x": 4,
-      "y": 1,
-      "type": "cube"
-    },
-    {
-      "width": 1,
-      "height": 0,
-      "color": "red",
-      "x": 5,
-      "y": 2,
-      "type": "cube"
-    },
-    {
-      "width": 1,
-      "height": 0,
-      "color": "red",
-      "x": 7,
-      "y": 2,
-      "type": "cube"
+      "height": 5,
+      "end": 1
     },
     {
       "width": 3,
       "height": 0,
       "color": "red",
-      "x": 5,
-      "y": 4,
+      "x": 1,
+      "y": 1,
       "type": "cube"
     },
     {
       "width": 0,
       "height": 3,
       "color": "red",
-      "x": 5,
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 3,
       "y": 2,
       "type": "cube"
     },
     {
-      "width": 0,
-      "height": 3,
-      "color": "red",
-      "x": 8,
-      "y": 2,
-      "type": "cube"
+      "x": 1,
+      "y": 1,
+      "type": "image"
     }
   ],
-  [],
-  []
+  [
+    {
+      "name": "easy 3",
+      "width": 5,
+      "height": 5,
+      "end": 1
+    },
+    {
+      "width": 3,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 3,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 0,
+      "height": 3,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 3,
+      "type": "cube"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "name": "easy 4",
+      "width": 5,
+      "height": 5,
+      "end": 2
+    },
+    {
+      "width": 3,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 3,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 0,
+      "height": 2,
+      "color": "red",
+      "x": 4,
+      "y": 3,
+      "type": "cube"
+    },
+    {
+      "width": 0,
+      "height": 3,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 3,
+      "type": "cube"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "image"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "image"
+    }
+  ]
 ]

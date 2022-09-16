@@ -8,6 +8,9 @@ body {
 #loading{
     width: 100%;
 }
+textarea{
+    height: 80%;
+}
 
 canvas {
     display: block;
@@ -17,7 +20,9 @@ canvas {
 }
 
 #interface{
-    float: right;
+    /*float: right;*/
+    width: 160px;
+    height: 200px;
     margin: 5px;
     background-color: darksalmon;
     border-style: ridge;

@@ -7,7 +7,7 @@ function updateGameArea() {
             myConfig.wallMass[i].update()
         }
     // перемишеие персонажа
-    myConfig.coin.update(); // обновляем монетку
+   // myConfig.coin.update(); // обновляем монетку
 
     myConfig.myScore.text = "x:" + myConfig.myPlayr.x + " y:" + myConfig.myPlayr.y;
     turnImeg();

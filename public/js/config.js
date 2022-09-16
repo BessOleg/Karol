@@ -5,19 +5,32 @@ var myConfig = {
     mapObj: {mapArray: '', mapFlag: false},// получаемий файл с сервера
     idexSelect: $("select")[0].selectedIndex,
     FileLoad: $("#filegame")[0],
-    startStop: $("#start")[0], boolstart: true,
+    startStop: $("#start"),
+    boolstart: true,
     levelTurn: 2
 };
-myConfig.startStop.onmousedown = startGame;
+
+myConfig.startStop.on("mousedown",()=> {
+    startGame();
+});
 
 // авто изменение окна карти
-$("body")[0].onresize = myWindowMap = () => {
-    myConfig.windowMap.x = Math.round((window.innerWidth / 320) * 20)
-    myConfig.windowMap.y = Math.round((window.innerHeight / 480) * 35)
-    myGameArea.clear()
-    myGameArea.stop()
+$( window ).resize(()=>{
+    myWindowMap();
+});
+
+
+
+myWindowMap = () => {
+    myConfig.windowMap.x = Math.round((window.innerWidth / 320) * 20);
+    myConfig.windowMap.y = Math.round((window.innerHeight / 480) * 35);
+    //KarelCodeManag.stepKerrol=[];
+    //worldgen();
+    myGameArea.clear();
+    myGameArea.stop();
     startGame();
-}
+};
+
 
 window.onload = () => {
     selload().then(data => {
@@ -25,7 +38,7 @@ window.onload = () => {
         startGame();
     });
     myWindowMap();
-}
+};
 
 // функция запроса обекта карти у сервера
 function selload() {
@@ -38,7 +51,7 @@ function selload() {
             //  console.log(reject);
         }
         // console.log(date)
-        myConfig.startStop.removeAttribute('disabled');
+        myConfig.startStop.removeAttr('disabled');
         xhr.send();
     });
 
@@ -51,11 +64,11 @@ myConfig.FileLoad.addEventListener('change', function () {
     read.readAsText(file);
     read.onload = () => {
         myConfig.mapObj.mapArray = JSON.parse(read.result)
-    }
+    };
     myConfig.mapObj.mapFlag = true;
     myConfig.startStop.removeAttribute('disabled');
     //startGame();
-})
+});
 
 
 function startGame() {
@@ -81,7 +94,8 @@ var crashWith = () => {
     let mytop = myConfig.myPlayr.y;
     let mybottom = myConfig.myPlayr.y + (myConfig.myPlayr.height);
     for (var i in myConfig.wallMass) {
-        let otherleft = myConfig.wallMass[i].x;
+        if(myConfig.wallMass[i].type !=="image")
+        {let otherleft = myConfig.wallMass[i].x;
         let otherright = myConfig.wallMass[i].x + myConfig.wallMass[i].width;
         let othertop = myConfig.wallMass[i].y;
         let otherbottom = myConfig.wallMass[i].y + myConfig.wallMass[i].height;
@@ -113,14 +127,13 @@ var crashWith = () => {
             }
                 break;
         }
-        if (currentStep == 0) {
+        if (currentStep === 0) {
             return currentStep;
-        }
+        }}
     }
     return currentStep;
 
-}
-
+};
 
 
 

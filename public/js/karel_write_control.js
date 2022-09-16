@@ -34,7 +34,8 @@ let karol = {
             }
         }
     },
-
+    chekCoin: chekToken
+    ,
     // chek object
     chekWall: () => {
         if (crashWith() === 0) {
@@ -62,9 +63,10 @@ let karol = {
         return false;
 
     },
-}
+};
 var KarolLoad = $("#loading")[0];
 let stepDisplay = () => {
+    var saveX = myConfig.windowMap.x, saveY = myConfig.windowMap.y;
     KarolLoad.value = 0;
     KarolLoad.max = KarelCodeManag.stepKerrol.length;
     KarolLoad.low = KarelCodeManag.stepKerrol.length * 0.3;
@@ -74,9 +76,18 @@ let stepDisplay = () => {
     myConfig.myPlayr.x = 0;
     myConfig.myPlayr.y = 0;
     myConfig.levelTurn = 2;
+    var windwoflag = true;
     KarelCodeManag.stepKerrol.forEach(function (item) {
-        setTimeout(() => {
-            KarolLoad.value += 1;
+        var gokarol = setTimeout(() => {
+            if (saveX !== myConfig.windowMap.x && saveY !== myConfig.windowMap.y) {
+                windwoflag = false;
+                return;
+            }
+            if (!windwoflag) {
+                clearInterval(gokarol);
+                return;
+            } else
+                KarolLoad.value += 1;
             if (item.turn !== undefined) {
                 myConfig.levelTurn = item.turn;
             } else if (item.x !== undefined) {
@@ -89,7 +100,8 @@ let stepDisplay = () => {
 
 // action when clicking on the button to run the code
 $("#gocode").click(function () {
-    myConfig.myPlayr.x = 0;myConfig.myPlayr.y = 0;
+    myConfig.myPlayr.x = 0;
+    myConfig.myPlayr.y = 0;
     myConfig.levelTurn = 2;
     let iterfase = $("#interface")[0]
     KarelCodeManag.stepKerrol = [];
