@@ -56,30 +56,29 @@ function clearmove() {
 
 // функцыя поднятия и вышвыривания монетки
 var chekToken = () => {
-    var cheket =false;
-    myConfig.wallMass.forEach(item =>{
-       if(item.type==="image"&&item.x === myConfig.myPlayr.x && item.y=== myConfig.myPlayr.y){
-               cheket=true;
-           return;
-       }
+    var cheket = false;
+    myConfig.wallMass.forEach(item => {
+        if (item.type === "image" && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
+            cheket = true;
+            return;
+        }
     });
-return cheket;
+    return cheket;
 };
 
 function token() {
-   if(!chekToken()){
-       myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", myConfig.myPlayr.x, myConfig.myPlayr.y, "image"));
-   }
-   else {
-       myConfig.wallMass.splice(searchElement(),1);
-   }
+    if (!chekToken()) {
+        myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", myConfig.myPlayr.x, myConfig.myPlayr.y, "image"));
+    } else {
+        myConfig.wallMass.splice(searchElement(), 1);
+    }
 }
 
-var searchElement=()=>{
+var searchElement = () => {
     var ind;
-    myConfig.wallMass.forEach((item,index) =>{
-        if(item.type==="image"&&item.x === myConfig.myPlayr.x && item.y=== myConfig.myPlayr.y){
-            return ind=index;
+    myConfig.wallMass.forEach((item, index) => {
+        if (item.type === "image" && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
+            return ind = index;
         }
     });
     return ind;

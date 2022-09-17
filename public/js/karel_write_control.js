@@ -64,7 +64,7 @@ let karol = {
 
     },
 };
-var KarolLoad = $("#loading")[0];
+var KarolLoad = $("#loading");
 let stepDisplay = () => {
     var saveX = myConfig.windowMap.x, saveY = myConfig.windowMap.y;
     KarolLoad.value = 0;
@@ -103,14 +103,14 @@ $("#gocode").click(function () {
     myConfig.myPlayr.x = 0;
     myConfig.myPlayr.y = 0;
     myConfig.levelTurn = 2;
-    let iterfase = $("#interface")[0]
+    let iterfase = $("#interface")
     KarelCodeManag.stepKerrol = [];
     iterfase.style.pointerEvents = "none";
     KarelCodeManag.error = 0;
     KarelCodeManag.timeflag = true;
     // KarelCodeManag.stepKerrol.push({turn: myConfig.levelTurn})
     // KarelCodeManag.stepKerrol.push({x: myConfig.myPlayr.x, y: myConfig.myPlayr.y})
-    let code = $("textarea")[0].value;
+    let code = $("textarea").value;
     try {
         eval(code);// метод реализации из текста в код
         stepDisplay();

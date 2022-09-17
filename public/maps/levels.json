@@ -4,7 +4,8 @@
       "name": "easy 1",
       "width": 5,
       "height": 5,
-      "end": 1
+      "task":1,
+      "typeTask":"loot"
     },
     {
       "width": 3,

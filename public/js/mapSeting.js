@@ -1,6 +1,6 @@
 // конфигы и загрузка мапи
 var myGameArea = {
-    canvas: $("#Canvas")[0],
+    canvas: $("#Canvas"),
     start: function () {
 
         if (myConfig.mapObj.mapFlag === true) {
