@@ -3,7 +3,8 @@ var myConfig = {
     windowMap: {x: '', y: ''},// розммери сетки
     wallMass: [], // масив стен и обектов
     mapObj: {mapArray: '', mapFlag: false},// получаемий файл с сервера
-    idexSelect: $("select").selectedIndex,
+    lvlSelect: $("select"),
+    idexSelect: $("select").val() - 1,
     FileLoad: $("#filegame"),
     startStop: $("#start"),
     boolstart: true,
@@ -55,7 +56,7 @@ function selload() {
 
 }
 
-myConfig.FileLoad.addEventListener('change', function () {
+myConfig.FileLoad.on('change', function () {
     let file = myConfig.FileLoad.files[0];
     console.log(myConfig.FileLoad.files[0]);
     let read = new FileReader();
@@ -70,10 +71,8 @@ myConfig.FileLoad.addEventListener('change', function () {
 
 
 function startGame() {
-
-
     if (myConfig.boolstart) {
-        myConfig.idexSelect = $("select").selectedIndex;
+        myConfig.idexSelect = parseInt($("select").val()) - 1;
         worldgen();
         myGameArea.start();
 
@@ -92,7 +91,7 @@ var crashWith = () => {
     let mytop = myConfig.myPlayr.y;
     let mybottom = myConfig.myPlayr.y + (myConfig.myPlayr.height);
     for (var i in myConfig.wallMass) {
-        if (myConfig.wallMass[i].type !== "image") {
+        if (myConfig.wallMass[i].type !== "image"&&myConfig.wallMass[i].type !== "font") {
             let otherleft = myConfig.wallMass[i].x;
             let otherright = myConfig.wallMass[i].x + myConfig.wallMass[i].width;
             let othertop = myConfig.wallMass[i].y;

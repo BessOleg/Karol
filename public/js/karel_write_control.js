@@ -11,10 +11,10 @@ let karol = {
     //moving forward
     go: () => {
         if (KarelCodeManag.error <= 3) {
-            if (karol.chekWall() === true) {
+            if (karol.checkWall() === true) {
                 KarelCodeManag.error += 1;
             }
-            console.log(KarelCodeManag.error)
+            // console.log(KarelCodeManag.error)
             move();
         }
     },
@@ -23,21 +23,26 @@ let karol = {
             turn();
         }
     }, // lift coin
-    lift: () => {
-        if (KarelCodeManag.error <= 3) {
-            token();
-            if (myConfig.coin.height === 0) {
-                alert("You WIN! \n  You error: " + KarelCodeManag.error)
-            } else {
-                //  alert("not my mony!")
-                return false;
-            }
-        }
+    putCoin: () => {
+        KarelCodeManag.stepKerrol.push({token: "down"})
     },
-    chekCoin: chekToken
+    flipCoin: () => {
+        KarelCodeManag.stepKerrol.push({token: "up"})
+        /* if (KarelCodeManag.error <= 3) {
+             token();
+             if (myConfig.coin.height === 0) {
+                 alert("You WIN! \n  You error: " + KarelCodeManag.error)
+             } else {
+                 //  alert("not my mony!")
+                 return false;
+             }
+         }*/
+    },
+    checkCoin:()=> checkToken("image"),
+    checkTabCoin:()=> checkToken("font")
     ,
-    // chek object
-    chekWall: () => {
+    // check object
+    checkWall: () => {
         if (crashWith() === 0) {
             return true
         }
@@ -64,7 +69,7 @@ let karol = {
 
     },
 };
-var KarolLoad = $("#loading");
+var KarolLoad = $("#loading")[0];
 let stepDisplay = () => {
     var saveX = myConfig.windowMap.x, saveY = myConfig.windowMap.y;
     KarolLoad.value = 0;
@@ -93,6 +98,9 @@ let stepDisplay = () => {
             } else if (item.x !== undefined) {
                 myConfig.myPlayr.x = item.x;
                 myConfig.myPlayr.y = item.y;
+            } else if (item.token) {
+                if (item.token === "up" && checkToken() === true) token();
+                if (item.token === "down" && checkToken() === false) token();
             }
         }, KarelCodeManag.timeset += KarelCodeManag.timestep)
     });
@@ -105,12 +113,12 @@ $("#gocode").click(function () {
     myConfig.levelTurn = 2;
     let iterfase = $("#interface")
     KarelCodeManag.stepKerrol = [];
-    iterfase.style.pointerEvents = "none";
+    iterfase.css("pointerEvents", "none");
     KarelCodeManag.error = 0;
     KarelCodeManag.timeflag = true;
     // KarelCodeManag.stepKerrol.push({turn: myConfig.levelTurn})
     // KarelCodeManag.stepKerrol.push({x: myConfig.myPlayr.x, y: myConfig.myPlayr.y})
-    let code = $("textarea").value;
+    let code = $("textarea").val()
     try {
         eval(code);// метод реализации из текста в код
         stepDisplay();
@@ -120,8 +128,8 @@ $("#gocode").click(function () {
     if (KarelCodeManag.error > 3) {
         setTimeout(() => alert('Game Over. You error: ' + KarelCodeManag.error), KarelCodeManag.timeset += KarelCodeManag.timestep);
     }
-    setTimeout(() => iterfase.style.pointerEvents = "", KarelCodeManag.timeset += KarelCodeManag.timestep);
-    setTimeout(() => iterfase.style.pointerEvents = "", KarelCodeManag.timeset += KarelCodeManag.timestep);
+    setTimeout(() => iterfase.css("pointerEvents", ""), KarelCodeManag.timeset += KarelCodeManag.timestep);
+    // setTimeout(() => iterfase.style.pointerEvents = "", KarelCodeManag.timeset += KarelCodeManag.timestep);
     KarelCodeManag.timeflag = false;
     KarelCodeManag.timeset = 0;
 

@@ -55,31 +55,47 @@ function clearmove() {
 }
 
 // функцыя поднятия и вышвыривания монетки
-var chekToken = () => {
-    var cheket = false;
+var checkToken = (search) => {
+    var checket = false;
     myConfig.wallMass.forEach(item => {
-        if (item.type === "image" && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
-            cheket = true;
-            return;
+        if (item.type === search && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
+            checket = true;
+            return checket;
         }
     });
-    return cheket;
+    return checket;
 };
 
 function token() {
-    if (!chekToken()) {
+    if (!checkToken("image")) {
         myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", myConfig.myPlayr.x, myConfig.myPlayr.y, "image"));
     } else {
-        myConfig.wallMass.splice(searchElement(), 1);
+        myConfig.wallMass.splice(searchElement("image"), 1);
     }
 }
 
-var searchElement = () => {
+var searchElement = (search) => {
     var ind;
     myConfig.wallMass.forEach((item, index) => {
-        if (item.type === "image" && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
+        if (item.type === search && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
             return ind = index;
         }
     });
     return ind;
 };
+
+function lvltask() {
+    var index =0;
+    for (key in myConfig.wallMass) {
+        if (myConfig.wallMass[key].type === "font") {
+            for (item in myConfig.wallMass) {
+                if (myConfig.wallMass[item].type === "image") {
+                    if(myConfig.wallMass[key].x === myConfig.wallMass[item].x&& myConfig.wallMass[key].y === myConfig.wallMass[item].y){
+                        index+=1;
+                    }
+                }
+            }
+        }
+    }
+    wordlTask.userstep = index;
+}

@@ -1,6 +1,6 @@
 // конфигы и загрузка мапи
 var myGameArea = {
-    canvas: $("#Canvas"),
+    canvas: $("#Canvas")[0],
     start: function () {
 
         if (myConfig.mapObj.mapFlag === true) {
@@ -36,19 +36,11 @@ var myGameArea = {
         clearInterval(this.interval);
 
     }, newlvl: function () {
-        if (myConfig.idexSelect < $("select")[0].length - 1) {
-            myConfig.idexSelect = $("select")[0].selectedIndex++;
-            myConfig.coin.x = myConfig.myPlayr.x;
-            myConfig.coin.y = myConfig.myPlayr.y;
-            // setTimeout(startGame,3000)
-            //  setTimeout(startGame,3000)
-        } else {
-            myConfig.idexSelect = $("select")[0].selectedIndex = 0;
-            //  setTimeout(startGame,3000)
-            //  setTimeout(startGame,3000)
-        }
-        startGame()
-        startGame()
+        alert("You WIN! \n  You error: " + KarelCodeManag.error)
+        //let next = myConfig.idexSelect+2 > $("select option").length ? 0 :  myConfig.idexSelect+2
+        myConfig.lvlSelect.val( myConfig.idexSelect+2 >= $("select option").length ? 1 :  myConfig.idexSelect+2);
+        startGame();
+        startGame();
     }
     , netupdate: function () {
         this.context.strokeStyle = "rgba(16,206,202,0.56)";

@@ -27,7 +27,10 @@ function component(width, height, color, x, y, type) {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
         }
-
+        if (this.type === "font") {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
         if (type === "image") {
             ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
         }
