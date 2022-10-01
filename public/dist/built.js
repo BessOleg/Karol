@@ -228,11 +228,12 @@ var downToken = () => {
     }
 };
 var upToken = () => {
-    myConfig.wallMass.splice(searchElement("image"), 1);
+    if(searchElement("image")!=false)
+    {myConfig.wallMass.splice(searchElement("image"), 1);}
 }
 
 var searchElement = (search) => {
-    var ind;
+    var ind = false;
     myConfig.wallMass.forEach((item, index) => {
         if (item.type === search && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
             return ind = index;
