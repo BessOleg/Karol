@@ -1,3 +1,4 @@
+
 //поворот персонажа
 //
 let playrTurn = {
@@ -74,6 +75,15 @@ function token() {
     }
 }
 
+var downToken = () => {
+    if (!checkToken("image")) {
+        myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", myConfig.myPlayr.x, myConfig.myPlayr.y, "image"));
+    }
+};
+var upToken = () => {
+    myConfig.wallMass.splice(searchElement("image"), 1);
+}
+
 var searchElement = (search) => {
     var ind;
     myConfig.wallMass.forEach((item, index) => {
@@ -85,13 +95,13 @@ var searchElement = (search) => {
 };
 
 function lvltask() {
-    var index =0;
+    var index = 0;
     for (key in myConfig.wallMass) {
         if (myConfig.wallMass[key].type === "font") {
             for (item in myConfig.wallMass) {
                 if (myConfig.wallMass[item].type === "image") {
-                    if(myConfig.wallMass[key].x === myConfig.wallMass[item].x&& myConfig.wallMass[key].y === myConfig.wallMass[item].y){
-                        index+=1;
+                    if (myConfig.wallMass[key].x === myConfig.wallMass[item].x && myConfig.wallMass[key].y === myConfig.wallMass[item].y) {
+                        index += 1;
                     }
                 }
             }

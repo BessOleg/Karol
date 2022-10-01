@@ -24,10 +24,14 @@ let karol = {
         }
     }, // lift coin
     putCoin: () => {
-        KarelCodeManag.stepKerrol.push({token: "down"})
+        if (KarelCodeManag.error <= 3) {
+            KarelCodeManag.stepKerrol.push({token: "down"})
+        }
     },
     flipCoin: () => {
-        KarelCodeManag.stepKerrol.push({token: "up"})
+        if (KarelCodeManag.error <= 3) {
+            KarelCodeManag.stepKerrol.push({token: "up"})
+        }
         /* if (KarelCodeManag.error <= 3) {
              token();
              if (myConfig.coin.height === 0) {
@@ -38,8 +42,8 @@ let karol = {
              }
          }*/
     },
-    checkCoin:()=> checkToken("image"),
-    checkTabCoin:()=> checkToken("font")
+    checkCoin: () => checkToken("image"),
+    checkTabCoin: () => checkToken("font")
     ,
     // check object
     checkWall: () => {
@@ -99,8 +103,15 @@ let stepDisplay = () => {
                 myConfig.myPlayr.x = item.x;
                 myConfig.myPlayr.y = item.y;
             } else if (item.token) {
-                if (item.token === "up" && checkToken() === true) token();
-                if (item.token === "down" && checkToken() === false) token();
+                if (item.token === "up") {
+                    upToken()
+                }
+                ;
+                if (item.token === "down") {
+                    downToken()
+                }
+                ;
+
             }
         }, KarelCodeManag.timeset += KarelCodeManag.timestep)
     });

@@ -1,3 +1,5 @@
+
+
 //загрузка элементов мира
 var wordlTask = {
     condition: "",// количестов
@@ -39,7 +41,7 @@ function generation(files) {
                             break;
                         case"task":
                             wordlTask.condition = files[i][key];
-                            textlvl = "Task for Lvl: " + files[i][key];
+                            textlvl = "Task for lvl: " + files[i][key];
                             break;
                         case"typeTask":
                             wordlTask.type = files[i][key];

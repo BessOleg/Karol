@@ -40,12 +40,15 @@ canvas {
 header, footer {
     border-style: outset;
     background-color: #2ed6d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #start{
     margin: 10px;
     height: 30px;
-    width: 50px;
+    width: 75px;
 }
 
 footer {

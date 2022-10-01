@@ -1,3 +1,5 @@
+
+
 function updateGameArea() {
 
     myGameArea.clear(); // чистим поле

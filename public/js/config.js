@@ -1,3 +1,12 @@
+var $ = require("jquery");
+
+$("#go").click(()=> move());
+$("#turn").click(()=>turn());
+$("#token").click(()=>token());
+
+
+
+
 var myConfig = {
     myPlayr: '', coin: '', myScore: '',//обекти игри
     windowMap: {x: '', y: ''},// розммери сетки
@@ -12,6 +21,7 @@ var myConfig = {
 };
 
 myConfig.startStop.on("mousedown", () => {
+    startGame();
     startGame();
 });
 

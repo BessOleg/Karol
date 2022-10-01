@@ -5,10 +5,10 @@
     <title>Go to Robot</title>
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
 </head>
 <header>
-    <button disabled id="start">start</button>
+    <button disabled id="start">Restart</button>
     <input id="filegame" accept=".json" type="file" onchange="showFile(this)">
     <select name="user_profile_color_1" autofocus>
         <option value="1">level</option>
@@ -22,13 +22,13 @@
 <div class="conteiner">
     <div id="interface">
 
-        <button id="go" onmousedown="move()" onmouseup="clearmove()">GO</button>
+        <button id="go" >GO</button>
         <div>
-            <button id="turn" onmousedown="turn()"><img src="https://img.icons8.com/doodle/344/rotate.png" id="im">
+            <button id="turn" ><img src="https://img.icons8.com/doodle/344/rotate.png" id="im">
             </button>
         </div>
         <div>
-            <button id="token" onmousedown="token()">token</button>
+            <button id="token" >token</button>
         </div>
         <div>
         </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="lvlInfo">
         <details open id="lvlInfo">
-            <summary>lvl info</summary>
+            <summary>Level info</summary>
 
         </details>
     </div>
@@ -55,10 +55,12 @@
         <h4>Help</h4>
         <h5>control functions</h5>
         <p> karol.go(); - make a move</p>
-        <p> karol.turnLeft(); - make a turn</p>
-        <p> karol.checkCoin(); - true = coin</p>
-        <p> karol.lift(); - pick up a coin</p>
-        <p> karol.checkWall(); - true = wall</p>
+        <p> karol.turnLeft(); - make a turn left</p>
+        <p> karol.putCoin(); - put in a coin</p>
+        <p> karol.flipCoin(); - flip a coin</p>
+        <p> karol.checkCoin(); - check for the presence of a coin</p>
+        <p>karol.checkTabCoin(); - check for coin fields</p>
+        <p>karol.checkWall(); - check on the wall</p>
     </div>
 </div>
 
@@ -66,6 +68,6 @@
 
 
 </footer>
-<script src="dist/built.js"></script>
+<script src="dist/main.js"></script>
 </body>
 </html>

@@ -15,12 +15,13 @@ var myGameArea = {
 
         }
         this.context = this.canvas.getContext("2d");
+        //console.log(this.context===)
         this.interval = setInterval(updateGameArea, 30);
 
         myConfig.boolstart = false;
         myConfig.startStop.innerText = "stop";
     }, clear: function () {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }, stop: function () {
 
         myConfig.wallMass = [];
@@ -38,7 +39,7 @@ var myGameArea = {
     }, newlvl: function () {
         alert("You WIN! \n  You error: " + KarelCodeManag.error)
         //let next = myConfig.idexSelect+2 > $("select option").length ? 0 :  myConfig.idexSelect+2
-        myConfig.lvlSelect.val( myConfig.idexSelect+2 >= $("select option").length ? 1 :  myConfig.idexSelect+2);
+        myConfig.lvlSelect.val(myConfig.idexSelect + 2 >= $("select option").length ? 1 : myConfig.idexSelect + 2);
         startGame();
         startGame();
     }

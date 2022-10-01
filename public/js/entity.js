@@ -1,3 +1,4 @@
+
 function component(width, height, color, x, y, type) {
     this.type = type;
     this.width = width;
