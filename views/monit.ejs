@@ -2,60 +2,72 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Document</title>
+    <title>Go to Robot</title>
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </head>
 <header>
-    <button disabled id="start">start</button>
+    <button disabled id="start">Restart</button>
     <input id="filegame" accept=".json" type="file" onchange="showFile(this)">
-
     <select name="user_profile_color_1" autofocus>
-        <option value="1">level 1</option>
-        <option value="2">level 2</option>
-        <option value="3">no level</option>
-        <option value="4">no level</option>
+        <option value="1">level</option>
+        <option value="2">level</option>
+        <option value="3">level</option>
+        <option value="4">level</option>
+        loading
     </select>
 </header>
 <body>
-
-<div id="conteiner"></div>
+<div class="conteiner">
     <div id="interface">
 
-        <button id="go" onmousedown="move()" onmouseup="clearmove()">GO</button>
+        <button id="go" >GO</button>
         <div>
-            <button id="turn" onmousedown="turn()"><img src="https://img.icons8.com/doodle/344/rotate.png" id="im">
+            <button id="turn" ><img src="https://img.icons8.com/doodle/344/rotate.png" id="im">
             </button>
         </div>
         <div>
-            <button id="token" onmousedown="token()">token</button>
+            <button id="token" >token</button>
         </div>
-    </div><canvas id="Canvas"></canvas>
-<div id="conteiner"><div class="code">
+        <div>
+        </div>
+    </div>
+    <div>
+        <canvas id="Canvas"></canvas>
+        <meter id="loading" value="0" min="0" max="100" optimum="85" low="33" high="66"></meter>
+    </div>
+    <div class="lvlInfo">
+        <details open id="lvlInfo">
+            <summary>Level info</summary>
+
+        </details>
+    </div>
+</div>
+
+<div class="conteiner">
+    <div class="code">
         <div><input type="button" id="gocode" value="Submit code"></div>
         <textarea>
 </textarea>
     </div>
-<div class="code">
-    <h4>Help</h4>
-    <h5>control functions</h5>
-    <p> karol.go(); - make a move</p>
-    <p> karol.turnLeft(); - make a turn</p>
-    <p> karol.lift(); - pick up a coin</p>
-    <p> karol.chekWall(); - check for an obstacle. returns true and false </p>
-</div></div>
+    <div class="code">
+        <h4>Help</h4>
+        <h5>control functions</h5>
+        <p> karol.go(); - make a move</p>
+        <p> karol.turnLeft(); - make a turn left</p>
+        <p> karol.putCoin(); - put in a coin</p>
+        <p> karol.flipCoin(); - flip a coin</p>
+        <p> karol.checkCoin(); - check for the presence of a coin</p>
+        <p>karol.checkTabCoin(); - check for coin fields</p>
+        <p>karol.checkWall(); - check on the wall</p>
+    </div>
+</div>
 
 <footer>
-</footer>
-<script src="js/config.js"></script>
-<script src="js/entity.js"></script>
-<script src="js/control.js"></script>
-<script src="js/worldgen.js"></script>
-<script src="js/mapSeting.js"></script>
-<script src="js/render.js"></script>
-<script src="js/karel_write_control.js"></script>
 
+
+</footer>
+<script src="dist/main.js"></script>
 </body>
 </html>

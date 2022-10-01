@@ -1,43 +1,52 @@
 //обект для взаимодействия передвижения передвижения
 let KarelCodeManag = {
     timeset: 0, // буфер времени
-    timestep: 500, // задержка в милисикундах
+    timestep: 200, // задержка в милисикундах
     timeflag: false, // флаг на время виполнения автокода
     error: 0, stepKerrol: []
 }
-//setTimeout(turn, KarelCodeManag.timeset);
-//         if (KarelCodeManag.timeflag)
-//             KarelCodeManag.timeset += KarelCodeManag.timestep;
 
-// обектр робота для написания команд роботу
+// object of robot commands
 let karol = {
-    //движение робота в перед
+    //moving forward
     go: () => {
         if (KarelCodeManag.error <= 3) {
-            if (karol.chekWall() === true) {
+            if (karol.checkWall() === true) {
                 KarelCodeManag.error += 1;
             }
-            console.log(KarelCodeManag.error)
-
+            // console.log(KarelCodeManag.error)
             move();
         }
-    }, //поворот робота в лево
+    },
     turnLeft: () => {
         if (KarelCodeManag.error <= 3) {
             turn();
         }
-    }, // поднять монетку
-    lift: () => {
+    }, // lift coin
+    putCoin: () => {
         if (KarelCodeManag.error <= 3) {
-            token();
-            if(myConfig.coin.height===0){
-                alert("You WIN! \n  You error: "+ KarelCodeManag.error)
-            }
+            KarelCodeManag.stepKerrol.push({token: "down"})
         }
     },
-
-    // проверить на наличие барера
-    chekWall: () => {
+    flipCoin: () => {
+        if (KarelCodeManag.error <= 3) {
+            KarelCodeManag.stepKerrol.push({token: "up"})
+        }
+        /* if (KarelCodeManag.error <= 3) {
+             token();
+             if (myConfig.coin.height === 0) {
+                 alert("You WIN! \n  You error: " + KarelCodeManag.error)
+             } else {
+                 //  alert("not my mony!")
+                 return false;
+             }
+         }*/
+    },
+    checkCoin: () => checkToken("image"),
+    checkTabCoin: () => checkToken("font")
+    ,
+    // check object
+    checkWall: () => {
         if (crashWith() === 0) {
             return true
         }
@@ -63,34 +72,64 @@ let karol = {
         return false;
 
     },
-}
-
+};
+var KarolLoad = $("#loading")[0];
 let stepDisplay = () => {
+    var saveX = myConfig.windowMap.x, saveY = myConfig.windowMap.y;
+    KarolLoad.value = 0;
+    KarolLoad.max = KarelCodeManag.stepKerrol.length;
+    KarolLoad.low = KarelCodeManag.stepKerrol.length * 0.3;
+    KarolLoad.high = KarelCodeManag.stepKerrol.length * 0.6;
+    KarolLoad.optimum = KarelCodeManag.stepKerrol.length * 0.8;
     KarelCodeManag.timeset = 0;
     myConfig.myPlayr.x = 0;
     myConfig.myPlayr.y = 0;
     myConfig.levelTurn = 2;
+    var windwoflag = true;
     KarelCodeManag.stepKerrol.forEach(function (item) {
-        setTimeout(() => {
+        var gokarol = setTimeout(() => {
+            if (saveX !== myConfig.windowMap.x && saveY !== myConfig.windowMap.y) {
+                windwoflag = false;
+                return;
+            }
+            if (!windwoflag) {
+                clearInterval(gokarol);
+                return;
+            } else
+                KarolLoad.value += 1;
             if (item.turn !== undefined) {
                 myConfig.levelTurn = item.turn;
             } else if (item.x !== undefined) {
                 myConfig.myPlayr.x = item.x;
                 myConfig.myPlayr.y = item.y;
+            } else if (item.token) {
+                if (item.token === "up") {
+                    upToken()
+                }
+                ;
+                if (item.token === "down") {
+                    downToken()
+                }
+                ;
+
             }
         }, KarelCodeManag.timeset += KarelCodeManag.timestep)
     });
 };
 
-// де йствие при клике по кнопке для запуска кода
+// action when clicking on the button to run the code
 $("#gocode").click(function () {
-    let iterfase = $("#interface")[0]
-    iterfase.style.pointerEvents = "none";
+    myConfig.myPlayr.x = 0;
+    myConfig.myPlayr.y = 0;
+    myConfig.levelTurn = 2;
+    let iterfase = $("#interface")
+    KarelCodeManag.stepKerrol = [];
+    iterfase.css("pointerEvents", "none");
     KarelCodeManag.error = 0;
     KarelCodeManag.timeflag = true;
-    //  KarelCodeManag.stepKerrol.push({turn: myConfig.levelTurn})
+    // KarelCodeManag.stepKerrol.push({turn: myConfig.levelTurn})
     // KarelCodeManag.stepKerrol.push({x: myConfig.myPlayr.x, y: myConfig.myPlayr.y})
-    let code = $("textarea")[0].value;
+    let code = $("textarea").val()
     try {
         eval(code);// метод реализации из текста в код
         stepDisplay();
@@ -100,8 +139,8 @@ $("#gocode").click(function () {
     if (KarelCodeManag.error > 3) {
         setTimeout(() => alert('Game Over. You error: ' + KarelCodeManag.error), KarelCodeManag.timeset += KarelCodeManag.timestep);
     }
-    setTimeout(() => iterfase.style.pointerEvents = "", KarelCodeManag.timeset += KarelCodeManag.timestep);
-    setTimeout(() => iterfase.style.pointerEvents = "", KarelCodeManag.timeset += KarelCodeManag.timestep);
+    setTimeout(() => iterfase.css("pointerEvents", ""), KarelCodeManag.timeset += KarelCodeManag.timestep);
+    // setTimeout(() => iterfase.style.pointerEvents = "", KarelCodeManag.timeset += KarelCodeManag.timestep);
     KarelCodeManag.timeflag = false;
     KarelCodeManag.timeset = 0;
 

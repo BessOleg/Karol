@@ -1,5 +1,13 @@
+
 //поворот персонажа
 //
+let playrTurn = {
+    up: 'assets/karol_up.png',
+    down: "assets/karol_down.png",
+    left: "assets/karol_left.png",
+    right: "assets/karol_right.png"
+};
+
 function turn() {
     myConfig.levelTurn++;
     if (myConfig.levelTurn > 3) {
@@ -11,12 +19,6 @@ function turn() {
 }
 
 function turnImeg() {
-    let playrTurn = {
-        up: "assets/karol_up.png",
-        down: "assets/karol_down.png",
-        left: "assets/karol_left.png",
-        right: "assets/karol_right.png"
-    }
     if (myConfig.levelTurn === 1) myConfig.myPlayr.image.src = playrTurn.left
     if (myConfig.levelTurn === 2) myConfig.myPlayr.image.src = playrTurn.down
     if (myConfig.levelTurn === 3) myConfig.myPlayr.image.src = playrTurn.right
@@ -54,23 +56,56 @@ function clearmove() {
 }
 
 // функцыя поднятия и вышвыривания монетки
+var checkToken = (search) => {
+    var checket = false;
+    myConfig.wallMass.forEach(item => {
+        if (item.type === search && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
+            checket = true;
+            return checket;
+        }
+    });
+    return checket;
+};
+
 function token() {
-    let x = myConfig.myPlayr.x + (myConfig.myPlayr.width / 2)
-    let y = myConfig.myPlayr.y + (myConfig.myPlayr.height / 2)
-
-    if (myConfig.coin.height === 0) {
-        myConfig.coin.x = myConfig.myPlayr.x;
-        myConfig.coin.y = myConfig.myPlayr.y;
-        myConfig.coin.height = myConfig.windowMap.y;
-        myConfig.coin.width = myConfig.windowMap.x;
-
-    } else if (x >= myConfig.coin.x && x <= myConfig.coin.x + myConfig.coin.width && y >= myConfig.coin.y && y <= myConfig.coin.y + myConfig.coin.height) {
-        myConfig.levelTurn = 2;
-        // myConfig.myPlayr.image.src = "/public/assets/karol.png";
-        myConfig.coin.height = 0;
-        myConfig.coin.width = 0;
-        setTimeout(myGameArea.newlvl, 3000);
-        // myGameArea.newlvl()
-
+    if (!checkToken("image")) {
+        myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", myConfig.myPlayr.x, myConfig.myPlayr.y, "image"));
+    } else {
+        myConfig.wallMass.splice(searchElement("image"), 1);
     }
+}
+
+var downToken = () => {
+    if (!checkToken("image")) {
+        myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", myConfig.myPlayr.x, myConfig.myPlayr.y, "image"));
+    }
+};
+var upToken = () => {
+    myConfig.wallMass.splice(searchElement("image"), 1);
+}
+
+var searchElement = (search) => {
+    var ind;
+    myConfig.wallMass.forEach((item, index) => {
+        if (item.type === search && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
+            return ind = index;
+        }
+    });
+    return ind;
+};
+
+function lvltask() {
+    var index = 0;
+    for (key in myConfig.wallMass) {
+        if (myConfig.wallMass[key].type === "font") {
+            for (item in myConfig.wallMass) {
+                if (myConfig.wallMass[item].type === "image") {
+                    if (myConfig.wallMass[key].x === myConfig.wallMass[item].x && myConfig.wallMass[key].y === myConfig.wallMass[item].y) {
+                        index += 1;
+                    }
+                }
+            }
+        }
+    }
+    wordlTask.userstep = index;
 }

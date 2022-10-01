@@ -3,7 +3,13 @@
 }
 
 body {
-    background-color: rgba(116, 90, 208, 0.51);
+    background-color: rgba(105, 88, 169, 0.6);
+}
+#loading{
+    width: 100%;
+}
+textarea{
+    height: 80%;
 }
 
 canvas {
@@ -14,15 +20,17 @@ canvas {
 }
 
 #interface{
-    float: right;
+    /*float: right;*/
+    width: 160px;
+    height: 200px;
     margin: 5px;
-    background-color: darksalmon;
+    background-color: rgba(255, 85, 142, 0.78);
     border-style: ridge;
     padding: 5px;
+    border-radius: 20px 0px 0px 20px;
 
 }
 .code{
-
     margin: 5px;
     background-color: #9fd377;
     border-style: ridge;
@@ -32,12 +40,15 @@ canvas {
 header, footer {
     border-style: outset;
     background-color: #2ed6d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #start{
     margin: 10px;
     height: 30px;
-    width: 50px;
+    width: 75px;
 }
 
 footer {
@@ -56,10 +67,21 @@ body button {
     height: 32px;
     vertical-align: bottom;
 }
-#conteiner{
+.conteiner{
     margin: 5px auto;
     display: flex;
+    justify-content: center;
+
 }
 .code>h4,.code>h5{
     text-align: center;
+}
+
+.lvlInfo{
+    height: 100%;
+    margin: 5px;
+    background-color: rgba(233, 248, 94, 0.69);
+    border-style: ridge;
+    padding: 5px;
+    border-radius: 0px 20px 20px 0px;
 }
