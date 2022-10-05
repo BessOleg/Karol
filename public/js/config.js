@@ -1,4 +1,4 @@
-var $ = require("jquery");
+
 
 $("#go").click(()=> move());
 $("#turn").click(()=>turn());

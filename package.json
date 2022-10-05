@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "grunt concat && browserify   ./public/dist/built.js  -o  ./public/dist/main.js "
+    "build": "grunt concat && browserify   ./public/dist/built.js  -o  ./public/dist/main.js ",
+    "optimize": "browserify public/js/*.js -o public/dist/main.js"
 
   },
   "keywords": [],

@@ -54,15 +54,15 @@ let karol = {
             case 2:
                 if (myConfig.myPlayr.y + myConfig.myPlayr.height === myGameArea.canvas.height) {
                     return true
-                } else return false
+                } else return false;
             case 1:
                 if (myConfig.myPlayr.x === 0) {
                     return true
-                } else return false
+                } else return false;
             case 0:
                 if (myConfig.myPlayr.y === 0) {
                     return true
-                } else return false
+                } else return false;
             case 3:
                 if (myConfig.myPlayr.x + myConfig.myPlayr.width === myGameArea.canvas.width) {
                     return true
@@ -106,11 +106,9 @@ let stepDisplay = () => {
                 if (item.token === "up") {
                     upToken()
                 }
-                ;
                 if (item.token === "down") {
                     downToken()
                 }
-                ;
 
             }
         }, KarelCodeManag.timeset += KarelCodeManag.timestep)
@@ -122,7 +120,7 @@ $("#gocode").click(function () {
     myConfig.myPlayr.x = 0;
     myConfig.myPlayr.y = 0;
     myConfig.levelTurn = 2;
-    let iterfase = $("#interface")
+    let iterfase = $("#interface");
     KarelCodeManag.stepKerrol = [];
     iterfase.css("pointerEvents", "none");
     KarelCodeManag.error = 0;
