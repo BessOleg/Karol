@@ -1,10 +1,15 @@
+const {crashWith,myConfig} = require("./config")
+console.log(myConfig,"karel")
+
 //обект для взаимодействия передвижения передвижения
+
+
 let KarelCodeManag = {
     timeset: 0, // буфер времени
     timestep: 200, // задержка в милисикундах
     timeflag: false, // флаг на время виполнения автокода
     error: 0, stepKerrol: []
-}; exports.KarelCodeManag = KarelCodeManag;
+}; module.exports.KarelCodeManag = KarelCodeManag;
 
 // object of robot commands
 let karol = {

@@ -1,12 +1,13 @@
 {
   "name": "karol",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "node_modules/.bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "build": "grunt concat && browserify   ./public/dist/built.js  -o  ./public/dist/main.js ",
-    "optimize": "browserify public/js/control.js public/js/config.js public/js/karel_write_control.js public/js/entity.js public/js/mapSeting.js public/js/render.js public/js/worldgen.js -o public/dist/main.js"
+    "optimize": "browserify public/js/control.js  public/js/karel_write_control.js public/js/entity.js public/js/mapSeting.js public/js/render.js public/js/worldgen.js public/js/config.js -o public/dist/main.js",
+    "opti": "browserify public/js/*.js > public/dist/main.js"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +27,8 @@
     "grunt-contrib-concat": "^2.1.0",
     "jquery": "^3.6.1",
     "uniq": "^1.0.1",
-    "uniqid": "^5.4.0"
+    "uniqid": "^5.4.0",
+    "use-strict": "^1.0.1"
   },
   "devDependencies": {
     "browserify": "^17.0.0",

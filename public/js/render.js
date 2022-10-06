@@ -3,7 +3,7 @@ const {myConfig} = require("./config");
 const {wordlTask} = require("./worldgen");
 const {turnImeg, lvltask} = require("./control");
 
-
+console.log(myConfig,"render")
 function updateGameArea() {
 
     myGameArea.clear(); // чистим поле
@@ -18,7 +18,7 @@ function updateGameArea() {
     if (wordlTask.type === "dispense" && wordlTask.userstep === wordlTask.condition) {
         myGameArea.newlvl();
     }
-    if(wordlTask.type=== "loot" && wordlTask.userstep === 0){
+    if (wordlTask.type === "loot" && wordlTask.userstep === 0) {
         myGameArea.newlvl();
     }
     myConfig.myScore.text = "x:" + myConfig.myPlayr.x + " y:" + myConfig.myPlayr.y;
@@ -27,4 +27,6 @@ function updateGameArea() {
     myConfig.myScore.update(); // обновляем отображение координат перемишения
     //myGameArea.newlvl();
 
-} exports.render = updateGameArea;
+}
+
+module.exports.render = updateGameArea;

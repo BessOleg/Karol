@@ -1,7 +1,7 @@
 const {crashWith} = require("./config");
 const {myGameArea} = require("./mapSeting");
+const {KarelCodeManag} = require("./karel_write_control");
 
- exports.component = component;
 
 function component(width, height, color, x, y, type) {
     this.type = type;
@@ -40,7 +40,7 @@ function component(width, height, color, x, y, type) {
             ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
         }
 
-    }
+    };
 
 
     this.newPos = function () {
@@ -69,3 +69,4 @@ function component(width, height, color, x, y, type) {
 }
 
 
+module.exports.component = component;

@@ -1,7 +1,12 @@
 const {myConfig} = require("./config");
-
+const {component} = require("./entity");
 //поворот персонажа
 //
+console.log(myConfig,"control")
+$("#go").click(()=> move());
+$("#turn").click(()=>turn());
+$("#token").click(()=>token());
+
 let playrTurn = {
     up: 'assets/karol_up.png',
     down: "assets/karol_down.png",
@@ -32,7 +37,7 @@ function turnImeg() {
 function move() {
     switch (myConfig.levelTurn) {
         case 0:
-            myConfig.myPlayr.speedY = -myConfig.windowMap.y // up
+            myConfig.myPlayr.speedY = -myConfig.windowMap.y// up
             break;
         case 2:
             myConfig.myPlayr.speedY = myConfig.windowMap.y // down
@@ -80,7 +85,7 @@ var downToken = () => {
     }
 };
 var upToken = () => {
-    if(searchElement("image")!=false)
+    if(searchElement("image")!==false)
     {myConfig.wallMass.splice(searchElement("image"), 1);}
 }
 
@@ -108,4 +113,4 @@ function lvltask() {
         }
     }
     wordlTask.userstep = index;
-}; exports.lvltask = lvltask;
+};module.exports.lvltask = lvltask;

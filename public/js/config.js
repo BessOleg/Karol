@@ -1,16 +1,10 @@
-const {myGameArea} = require("./mapSeting")
+const {myGameArea} = require("./mapSeting");
 const {worldgen} = require("./worldgen");
+//window.require = require;
 
+'use strict';
 
-
-$("#go").click(()=> move());
-$("#turn").click(()=>turn());
-$("#token").click(()=>token());
-
-
-
-
-var myConfig = {
+let myConfig = {
     myPlayr: '', coin: '', myScore: '',//обекти игри
     windowMap: {x: '', y: ''},// розммери сетки
     wallMass: [], // масив стен и обектов
@@ -21,7 +15,8 @@ var myConfig = {
     startStop: $("#start"),
     boolstart: true,
     levelTurn: 2
-};exports.myConfig = myConfig;
+};
+module.exports.myConfig = myConfig;
 
 myConfig.startStop.on("mousedown", () => {
     startGame();
@@ -33,7 +28,7 @@ $(window).resize(() => {
     myWindowMap();
 });
 
-myWindowMap = () => {
+let myWindowMap = () => {
     myConfig.windowMap.x = Math.round((window.innerWidth / 320) * 20);
     myConfig.windowMap.y = Math.round((window.innerHeight / 480) * 35);
     //KarelCodeManag.stepKerrol=[];
@@ -47,13 +42,14 @@ myWindowMap = () => {
 window.onload = () => {
     selload().then(data => {
         myConfig.mapObj.mapArray = data;
+        //console.log(myConfig)
         startGame();
     });
     myWindowMap();
 };
 
 // функция запроса обекта карти у сервера
-function selload() {
+let selload = () => {
     return new Promise((resolve) => {
         let xhr = new XMLHttpRequest();
         xhr.open('POST', '/file');
@@ -61,7 +57,7 @@ function selload() {
         xhr.onload = () => {
             resolve(JSON.parse(xhr.responseText));
             //  console.log(reject);
-        }
+        };
         // console.log(date)
         myConfig.startStop.removeAttr('disabled');
         xhr.send();
@@ -83,28 +79,26 @@ myConfig.FileLoad.on('change', function () {
 });
 
 
-function startGame() {
+let startGame = () => {
     if (myConfig.boolstart) {
         myConfig.idexSelect = parseInt($("select").val()) - 1;
         worldgen();
         myGameArea.start();
-
     } else {
         myGameArea.stop();
         myGameArea.clear();
-
     }
+};
 
+module.exports.startGame = startGame;
 
-};exports.startGame = startGame;
-
-var crashWith = () => {
+let crashWith = () => {
     let myleft = myConfig.myPlayr.x;
     let myright = myConfig.myPlayr.x + (myConfig.myPlayr.width);
     let mytop = myConfig.myPlayr.y;
     let mybottom = myConfig.myPlayr.y + (myConfig.myPlayr.height);
     for (var i in myConfig.wallMass) {
-        if (myConfig.wallMass[i].type !== "image"&&myConfig.wallMass[i].type !== "font") {
+        if (myConfig.wallMass[i].type !== "image" && myConfig.wallMass[i].type !== "font") {
             let otherleft = myConfig.wallMass[i].x;
             let otherright = myConfig.wallMass[i].x + myConfig.wallMass[i].width;
             let othertop = myConfig.wallMass[i].y;
@@ -145,6 +139,9 @@ var crashWith = () => {
     return currentStep;
 
 };
-exports.crashWith = crashWith;
 
+
+//window.myConfig = myConfig;
+module.exports.crashWith = crashWith;
+//exports.myConfig = myConfig;
 

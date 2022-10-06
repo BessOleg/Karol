@@ -1,12 +1,12 @@
 // конфигы и загрузка мапи
-const {myConfig,startGame} = require("./config");
+const {startGame, myConfig} = require("./config");
 const {render} = require("./render");
 const {KarelCodeManag} = require("./karel_write_control");
-
-
+console.log(myConfig,"mapseting")
 var myGameArea = {
     canvas: $("#Canvas")[0],
     start: function () {
+
 
         if (myConfig.mapObj.mapFlag === true) {
             console.log("client");
@@ -26,7 +26,7 @@ var myGameArea = {
         myConfig.boolstart = false;
         myConfig.startStop.innerText = "stop";
     }, clear: function () {
-            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }, stop: function () {
 
         myConfig.wallMass = [];
@@ -71,4 +71,4 @@ var myGameArea = {
     }
 }
 //module.exports = myGameArea;
-exports.myGameArea = myGameArea;
+module.exports.myGameArea = myGameArea;

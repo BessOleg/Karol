@@ -1,25 +1,28 @@
-//const {myConfig} = require("./config");
+
 const {component} = require("./entity");
+const {myConfig} = require("./config");
+console.log(myConfig,"worldgen");
 
-
-
-//console.log(myConfig);
+//console.log(KarelCodeManag);
 //загрузка элементов мира
 var wordlTask = {
     condition: "",// количестов
     type: "",// тип задания
-    userstep:0
-}; exports.wordlTask = wordlTask;
+    userstep: 0
+};
+module.exports.wordlTask = wordlTask;
 
 function worldgen() {
-   // console.log(myConfig.mapObj.mapFlag)
+    //console.log(myConfig);
     if (myConfig.mapObj.mapFlag === true) {
-        maps(myConfig.mapObj.mapArray);
+        maps(myConfig.mapObj.mapArray, myConfig);
     } else {
-        maps(myConfig.mapObj.mapArray[myConfig.idexSelect]);
+        maps(myConfig.mapObj.mapArray[myConfig.idexSelect], myConfig);
     }
 
-} exports.worldgen = worldgen;
+}
+
+module.exports.worldgen = worldgen;
 
 function maps(map) {
     myConfig.myPlayr = new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/karol.png", 0, 0, "image");
@@ -33,7 +36,7 @@ function generation(files) {
         for (i in files) {
             // тут підгрузка  рівня та його вимог буде!
             if (files[i].name) {
-                $("details p").remove()
+                $("details p").remove();
                 var info = $("#lvlInfo");
                 for (key in files[i]) {
                     var textlvl = '';
@@ -71,7 +74,7 @@ function generation(files) {
             if (files[i].type === "image" && wordlTask.type === "dispense") {
                 // изменить генерацию монет
                 myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "rgba(67,169,61,0.15)", files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, "font"));
-              //  myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, "image"));
+                //  myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, "image"));
             }
         }
 }
