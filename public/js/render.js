@@ -1,3 +1,7 @@
+const {myGameArea} = require("./mapSeting");
+const {myConfig} = require("./config");
+const {wordlTask} = require("./worldgen");
+const {turnImeg, lvltask} = require("./control");
 
 
 function updateGameArea() {
@@ -23,4 +27,4 @@ function updateGameArea() {
     myConfig.myScore.update(); // обновляем отображение координат перемишения
     //myGameArea.newlvl();
 
-}
+} exports.render = updateGameArea;

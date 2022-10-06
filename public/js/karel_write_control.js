@@ -4,7 +4,7 @@ let KarelCodeManag = {
     timestep: 200, // задержка в милисикундах
     timeflag: false, // флаг на время виполнения автокода
     error: 0, stepKerrol: []
-}
+}; exports.KarelCodeManag = KarelCodeManag;
 
 // object of robot commands
 let karol = {

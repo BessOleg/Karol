@@ -1,28 +1,31 @@
+//const {myConfig} = require("./config");
+const {component} = require("./entity");
 
 
+
+//console.log(myConfig);
 //загрузка элементов мира
 var wordlTask = {
     condition: "",// количестов
     type: "",// тип задания
     userstep:0
-};
+}; exports.wordlTask = wordlTask;
 
 function worldgen() {
+   // console.log(myConfig.mapObj.mapFlag)
     if (myConfig.mapObj.mapFlag === true) {
         maps(myConfig.mapObj.mapArray);
     } else {
         maps(myConfig.mapObj.mapArray[myConfig.idexSelect]);
     }
 
-}
+} exports.worldgen = worldgen;
 
 function maps(map) {
     myConfig.myPlayr = new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/karol.png", 0, 0, "image");
     myConfig.myScore = new component("15px", "Consolas", "black", 60, 30, "text");
     //myConfig.coin = new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", 0, 0, "image");
     generation(map);
-
-
 }
 
 function generation(files) {

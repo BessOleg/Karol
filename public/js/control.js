@@ -1,3 +1,4 @@
+const {myConfig} = require("./config");
 
 //поворот персонажа
 //
@@ -24,9 +25,7 @@ function turnImeg() {
     if (myConfig.levelTurn === 3) myConfig.myPlayr.image.src = playrTurn.right
     if (myConfig.levelTurn === 0) myConfig.myPlayr.image.src = playrTurn.up;
     // myConfig.levelTurn = 0;
-
-
-}
+} exports.turnImeg = turnImeg;
 
 
 //движение персонажа
@@ -109,4 +108,4 @@ function lvltask() {
         }
     }
     wordlTask.userstep = index;
-}
+}; exports.lvltask = lvltask;

@@ -1,3 +1,7 @@
+const {crashWith} = require("./config");
+const {myGameArea} = require("./mapSeting");
+
+ exports.component = component;
 
 function component(width, height, color, x, y, type) {
     this.type = type;

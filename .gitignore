@@ -2,3 +2,4 @@ node_modules
 .idea
 public/dist/built.js
 public/dist/main.js
+public/dist/built.js

@@ -1,4 +1,9 @@
 // конфигы и загрузка мапи
+const {myConfig,startGame} = require("./config");
+const {render} = require("./render");
+const {KarelCodeManag} = require("./karel_write_control");
+
+
 var myGameArea = {
     canvas: $("#Canvas")[0],
     start: function () {
@@ -16,7 +21,7 @@ var myGameArea = {
         }
         this.context = this.canvas.getContext("2d");
         //console.log(this.context===)
-        this.interval = setInterval(updateGameArea, 30);
+        this.interval = setInterval(render, 30);
 
         myConfig.boolstart = false;
         myConfig.startStop.innerText = "stop";
@@ -65,3 +70,5 @@ var myGameArea = {
 
     }
 }
+//module.exports = myGameArea;
+exports.myGameArea = myGameArea;

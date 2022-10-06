@@ -6,8 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "build": "grunt concat && browserify   ./public/dist/built.js  -o  ./public/dist/main.js ",
-    "optimize": "browserify public/js/*.js -o public/dist/main.js"
-
+    "optimize": "browserify public/js/control.js public/js/config.js public/js/karel_write_control.js public/js/entity.js public/js/mapSeting.js public/js/render.js public/js/worldgen.js -o public/dist/main.js"
   },
   "keywords": [],
   "author": "",

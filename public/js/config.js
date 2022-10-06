@@ -1,3 +1,6 @@
+const {myGameArea} = require("./mapSeting")
+const {worldgen} = require("./worldgen");
+
 
 
 $("#go").click(()=> move());
@@ -18,7 +21,7 @@ var myConfig = {
     startStop: $("#start"),
     boolstart: true,
     levelTurn: 2
-};
+};exports.myConfig = myConfig;
 
 myConfig.startStop.on("mousedown", () => {
     startGame();
@@ -93,7 +96,7 @@ function startGame() {
     }
 
 
-}
+};exports.startGame = startGame;
 
 var crashWith = () => {
     let myleft = myConfig.myPlayr.x;
@@ -142,6 +145,6 @@ var crashWith = () => {
     return currentStep;
 
 };
-
+exports.crashWith = crashWith;
 
 
