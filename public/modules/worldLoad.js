@@ -1,44 +1,34 @@
+let {myConfig, wordlTask,playrTurn} = require("./storage");
+let {component} = require("./entity");
+'use strict';
 
-const {component} = require("./entity");
-const {myConfig} = require("./config");
-console.log(myConfig,"worldgen");
 
-//console.log(KarelCodeManag);
-//загрузка элементов мира
-var wordlTask = {
-    condition: "",// количестов
-    type: "",// тип задания
-    userstep: 0
-};
-module.exports.wordlTask = wordlTask;
+let worldgen = () => {
 
-function worldgen() {
-    //console.log(myConfig);
+    //console.log(component())
     if (myConfig.mapObj.mapFlag === true) {
         maps(myConfig.mapObj.mapArray, myConfig);
     } else {
         maps(myConfig.mapObj.mapArray[myConfig.idexSelect], myConfig);
     }
+};
 
-}
-
-module.exports.worldgen = worldgen;
-
-function maps(map) {
-    myConfig.myPlayr = new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/karol.png", 0, 0, "image");
+let maps = (map) => {
+    // console.log(myConfig);
+    myConfig.myPlayr = new component(myConfig.windowMap.x, myConfig.windowMap.y, playrTurn.down, 0, 0, "image");
     myConfig.myScore = new component("15px", "Consolas", "black", 60, 30, "text");
     //myConfig.coin = new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", 0, 0, "image");
     generation(map);
-}
+};
 
-function generation(files) {
+let generation = (files) => {
     if (files)
-        for (i in files) {
+        for (let i in files) {
             // тут підгрузка  рівня та його вимог буде!
             if (files[i].name) {
                 $("details p").remove();
                 var info = $("#lvlInfo");
-                for (key in files[i]) {
+                for (let key in files[i]) {
                     var textlvl = '';
                     switch (key) {
                         case"name":
@@ -77,6 +67,7 @@ function generation(files) {
                 //  myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, "image"));
             }
         }
-}
+   // /console.log(myConfig)
+};
 
-
+module.exports.worldgen = worldgen;

@@ -1,17 +1,9 @@
-const {crashWith,myConfig} = require("./config")
-console.log(myConfig,"karel")
+let {KarelCodeManag, myConfig, htmlObj} = require("./storage")
+let {Controls}=require("./control");
+let {myGameArea} = require("./worldCanvas")
+let {crashWith} = require("./Crash")
+'use strict';
 
-//обект для взаимодействия передвижения передвижения
-
-
-let KarelCodeManag = {
-    timeset: 0, // буфер времени
-    timestep: 200, // задержка в милисикундах
-    timeflag: false, // флаг на время виполнения автокода
-    error: 0, stepKerrol: []
-}; module.exports.KarelCodeManag = KarelCodeManag;
-
-// object of robot commands
 let karol = {
     //moving forward
     go: () => {
@@ -20,12 +12,12 @@ let karol = {
                 KarelCodeManag.error += 1;
             }
             // console.log(KarelCodeManag.error)
-            move();
+            Controls.move();
         }
     },
     turnLeft: () => {
         if (KarelCodeManag.error <= 3) {
-            turn();
+            Controls.turn();
         }
     }, // lift coin
     putCoin: () => {
@@ -47,8 +39,8 @@ let karol = {
              }
          }*/
     },
-    checkCoin: () => checkToken("image"),
-    checkTabCoin: () => checkToken("font")
+    checkCoin: () => Controls.checkToken("image"),
+    checkTabCoin: () => Controls.checkToken("font")
     ,
     // check object
     checkWall: () => {
@@ -78,21 +70,22 @@ let karol = {
 
     },
 };
-var KarolLoad = $("#loading")[0];
+
 let stepDisplay = () => {
-    var saveX = myConfig.windowMap.x, saveY = myConfig.windowMap.y;
-    KarolLoad.value = 0;
-    KarolLoad.max = KarelCodeManag.stepKerrol.length;
-    KarolLoad.low = KarelCodeManag.stepKerrol.length * 0.3;
-    KarolLoad.high = KarelCodeManag.stepKerrol.length * 0.6;
-    KarolLoad.optimum = KarelCodeManag.stepKerrol.length * 0.8;
+    let saveX = myConfig.windowMap.x, saveY = myConfig.windowMap.y;
+    htmlObj.KarolLoad.value = 0;
+    htmlObj.KarolLoad.max = KarelCodeManag.stepKerrol.length;
+    htmlObj.KarolLoad.low = KarelCodeManag.stepKerrol.length * 0.3;
+    htmlObj.KarolLoad.high = KarelCodeManag.stepKerrol.length * 0.6;
+    htmlObj.KarolLoad.optimum = KarelCodeManag.stepKerrol.length * 0.8;
     KarelCodeManag.timeset = 0;
     myConfig.myPlayr.x = 0;
     myConfig.myPlayr.y = 0;
     myConfig.levelTurn = 2;
-    var windwoflag = true;
-    KarelCodeManag.stepKerrol.forEach(function (item) {
-        var gokarol = setTimeout(() => {
+    let windwoflag = true;
+    console.log(KarelCodeManag.stepKerrol)
+    KarelCodeManag.stepKerrol.forEach((item)=> {
+        let gokarol = setTimeout(() => {
             if (saveX !== myConfig.windowMap.x && saveY !== myConfig.windowMap.y) {
                 windwoflag = false;
                 return;
@@ -101,7 +94,7 @@ let stepDisplay = () => {
                 clearInterval(gokarol);
                 return;
             } else
-                KarolLoad.value += 1;
+                htmlObj.KarolLoad.value += 1;
             if (item.turn !== undefined) {
                 myConfig.levelTurn = item.turn;
             } else if (item.x !== undefined) {
@@ -109,10 +102,10 @@ let stepDisplay = () => {
                 myConfig.myPlayr.y = item.y;
             } else if (item.token) {
                 if (item.token === "up") {
-                    upToken()
+                    Controls.upToken()
                 }
                 if (item.token === "down") {
-                    downToken()
+                    Controls.downToken()
                 }
 
             }
@@ -120,8 +113,7 @@ let stepDisplay = () => {
     });
 };
 
-// action when clicking on the button to run the code
-$("#gocode").click(function () {
+htmlObj.KarolSubmit.click(() => {
     myConfig.myPlayr.x = 0;
     myConfig.myPlayr.y = 0;
     myConfig.levelTurn = 2;
@@ -132,7 +124,7 @@ $("#gocode").click(function () {
     KarelCodeManag.timeflag = true;
     // KarelCodeManag.stepKerrol.push({turn: myConfig.levelTurn})
     // KarelCodeManag.stepKerrol.push({x: myConfig.myPlayr.x, y: myConfig.myPlayr.y})
-    let code = $("textarea").val()
+    let code = $("textarea").val();
     try {
         eval(code);// метод реализации из текста в код
         stepDisplay();
@@ -146,6 +138,4 @@ $("#gocode").click(function () {
     // setTimeout(() => iterfase.style.pointerEvents = "", KarelCodeManag.timeset += KarelCodeManag.timestep);
     KarelCodeManag.timeflag = false;
     KarelCodeManag.timeset = 0;
-
 });
-
