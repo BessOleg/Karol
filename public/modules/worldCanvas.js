@@ -19,7 +19,7 @@ let myGameArea = {
 
 
         if (myConfig.mapObj.mapFlag === false) {
-            console.log("server");
+           // console.log("server");
             myGameArea.canvas.width = myConfig.idexSelect >= 2 ? myConfig.windowMap.x * 5 : myConfig.mapObj.mapArray[myConfig.idexSelect][0].width * myConfig.windowMap.x;
             myGameArea.canvas.height = myConfig.idexSelect >= 2 ? myConfig.windowMap.y * 5 : myConfig.mapObj.mapArray[myConfig.idexSelect][0].height * myConfig.windowMap.y;
         }
