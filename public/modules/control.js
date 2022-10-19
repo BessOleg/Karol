@@ -1,6 +1,7 @@
-let {component} = require("./entity");
-let {myConfig,KarelCodeManag}=require("./storage")
 'use strict';
+let {component} = require("./entity");
+let {myConfig, KarelCodeManag} = require("./storage");
+
 
 
 let Controls = {

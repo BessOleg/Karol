@@ -1,8 +1,9 @@
-let {KarelCodeManag, myConfig, htmlObj} = require("./storage")
-let {Controls}=require("./control");
-let {myGameArea} = require("./worldCanvas")
-let {crashWith} = require("./Crash")
 'use strict';
+let {KarelCodeManag, myConfig, htmlObj} = require("./storage");
+let {Controls} = require("./control");
+let {myGameArea} = require("./worldCanvas");
+let {crashWith} = require("./Crash");
+
 
 let karol = {
     //moving forward
@@ -84,7 +85,7 @@ let stepDisplay = () => {
     myConfig.levelTurn = 2;
     let windwoflag = true;
     console.log(KarelCodeManag.stepKerrol)
-    KarelCodeManag.stepKerrol.forEach((item)=> {
+    KarelCodeManag.stepKerrol.forEach((item) => {
         let gokarol = setTimeout(() => {
             if (saveX !== myConfig.windowMap.x && saveY !== myConfig.windowMap.y) {
                 windwoflag = false;

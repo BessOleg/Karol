@@ -39,7 +39,7 @@ function component(width, height, color, x, y, type) {
         }
     };
     this.newPos = () => {
-        console.log(this);
+        //console.log(this);
         if (myConfig.wallMass.length > 0) {
             if (this.speedX !== 0) {
                 //console.log("crashX")

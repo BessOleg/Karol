@@ -9,7 +9,7 @@ let htmlObj = {
     KarolLoad: $("#loading")[0],
     KarolSubmit: $("#gocode")
 };
-
+//rename myConfig to mapPropertis
 let myConfig = {
     myPlayr: '', coin: '', myScore: '',//обекти игри
     windowMap: {x: '', y: ''},// розммери сетки

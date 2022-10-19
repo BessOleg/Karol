@@ -1,7 +1,9 @@
-let {htmlObj,myConfig}= require("./storage")
-let {Controls} = require("./control");
-let {myGameArea,startGame} = require("./worldCanvas")
 'use strict';
+let {htmlObj, myConfig} = require("./storage");
+let {Controls} = require("./control");
+let {myGameArea, startGame} = require("./worldCanvas");
+
+
 $("#go").click(() => Controls.move());
 $("#turn").click(() => Controls.turn());
 $("#token").click(() => Controls.token());

@@ -1,6 +1,7 @@
-let {myConfig, wordlTask,playrTurn} = require("./storage");
-let {component} = require("./entity");
 'use strict';
+let {myConfig, wordlTask, playrTurn} = require("./storage");
+let {component} = require("./entity");
+
 
 
 let worldgen = () => {
@@ -67,7 +68,7 @@ let generation = (files) => {
                 //  myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, "image"));
             }
         }
-   // /console.log(myConfig)
+    // /console.log(myConfig)
 };
 
 module.exports.worldgen = worldgen;

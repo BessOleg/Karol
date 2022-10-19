@@ -1,7 +1,8 @@
-let {myConfig, htmlObj,KarelCodeManag} = require("./storage");
+'use strict';
+let {myConfig, htmlObj, KarelCodeManag} = require("./storage");
 let {render} = require("./render");
 let {worldgen} = require("./worldLoad");
-'use strict';
+
 
 
 let myGameArea = {
@@ -16,22 +17,22 @@ let myGameArea = {
         startGame();
     },
     start: () => {
-
-
         if (myConfig.mapObj.mapFlag === false) {
-           // console.log("server");
+            // console.log("server");
             myGameArea.canvas.width = myConfig.idexSelect >= 2 ? myConfig.windowMap.x * 5 : myConfig.mapObj.mapArray[myConfig.idexSelect][0].width * myConfig.windowMap.x;
             myGameArea.canvas.height = myConfig.idexSelect >= 2 ? myConfig.windowMap.y * 5 : myConfig.mapObj.mapArray[myConfig.idexSelect][0].height * myConfig.windowMap.y;
         }
         myGameArea.context = myGameArea.canvas.getContext("2d");
 
-        myGameArea.interval = setInterval(()=>render(myGameArea), 30);
+        myGameArea.interval = setInterval(() => render(myGameArea), 30);
 
         myConfig.boolstart = false;
         htmlObj.restart.innerText = "stop";
-    }, clear: () => {
+    },
+    clear: () => {
         myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
-    }, stop: () => {
+    },
+    stop: () => {
         myConfig.wallMass = [];
         myConfig.boolstart = true;
         myConfig.levelTurn = 2;
@@ -43,20 +44,21 @@ let myGameArea = {
         htmlObj.restart.innerText = "start";
         clearInterval(this.interval);
 
-    }, newlvl: () => {
+    },
+    newlvl: () => {
         alert("You WIN! \n  You error: " + KarelCodeManag.error);
         htmlObj.lvlSelect.val(myConfig.idexSelect + 2 >= $("select option").length ? 1 : myConfig.idexSelect + 2);
         startGame();
         startGame();
-    }
-    , netupdate: () => {
+    },
+    netupdate: () => {
         myGameArea.context.strokeStyle = "rgba(16,206,202,0.56)";
         myGameArea.context.beginPath();
-        for (var x = 0; x < myGameArea.canvas.width; x += myConfig.windowMap.x) {
+        for (let x = 0; x < myGameArea.canvas.width; x += myConfig.windowMap.x) {
             myGameArea.context.moveTo(x, 0);
             myGameArea.context.lineTo(x, myGameArea.canvas.height);
         }
-        for (var y = 0; y < myGameArea.canvas.height; y += myConfig.windowMap.y) {
+        for (let y = 0; y < myGameArea.canvas.height; y += myConfig.windowMap.y) {
             myGameArea.context.moveTo(0, y);
             myGameArea.context.lineTo(myGameArea.canvas.width, y);
         }
@@ -76,6 +78,7 @@ let startGame = () => {
         myGameArea.clear();
     }
 };
+
 module.exports = {
     "myGameArea": myGameArea,
     "startGame": startGame

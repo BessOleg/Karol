@@ -1,7 +1,7 @@
-
-let {myGameArea,startGame} = require("./worldCanvas");
-let {myConfig,htmlObj}= require("./storage")
 'use strict';
+let {myGameArea, startGame} = require("./worldCanvas");
+let {myConfig, htmlObj} = require("./storage");
+
 
 // load map of server
 let selload = () => {
@@ -15,7 +15,6 @@ let selload = () => {
         xhr.send();
     });
 };
-
 
 
 window.onload = () => {
