@@ -1,5 +1,5 @@
 'use strict';
-let {myConfig, wordlTask, playrTurn} = require("./storage");
+let {mapPropertis, wordlTask, playrTurn} = require("./storage");
 let {component} = require("./entity");
 
 
@@ -7,18 +7,18 @@ let {component} = require("./entity");
 let worldgen = () => {
 
     //console.log(component())
-    if (myConfig.mapObj.mapFlag === true) {
-        maps(myConfig.mapObj.mapArray, myConfig);
+    if (mapPropertis.mapObj.mapFlag === true) {
+        maps(mapPropertis.mapObj.mapArray, mapPropertis);
     } else {
-        maps(myConfig.mapObj.mapArray[myConfig.idexSelect], myConfig);
+        maps(mapPropertis.mapObj.mapArray[mapPropertis.idexSelect], mapPropertis);
     }
 };
 
 let maps = (map) => {
-    // console.log(myConfig);
-    myConfig.myPlayr = new component(myConfig.windowMap.x, myConfig.windowMap.y, playrTurn.down, 0, 0, "image");
-    myConfig.myScore = new component("15px", "Consolas", "black", 60, 30, "text");
-    //myConfig.coin = new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", 0, 0, "image");
+    // console.log(mapPropertis);
+    mapPropertis.myPlayr = new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, playrTurn.down, 0, 0, "image");
+    mapPropertis.myScore = new component("15px", "Consolas", "black", 60, 30, "text");
+    //mapPropertis.coin = new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "assets/coin.png", 0, 0, "image");
     generation(map);
 };
 
@@ -52,23 +52,23 @@ let generation = (files) => {
                 }
             }
             if (files[i].type === "cube") {
-                myConfig.wallMass.push(new component(
-                    files[i].width === 0 ? 2 : files[i].width * myConfig.windowMap.x,
-                    files[i].height === 0 ? 2 : files[i].height * myConfig.windowMap.y,
-                    files[i].color, files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, files[i].type));
+                mapPropertis.wallMass.push(new component(
+                    files[i].width === 0 ? 2 : files[i].width * mapPropertis.windowMap.x,
+                    files[i].height === 0 ? 2 : files[i].height * mapPropertis.windowMap.y,
+                    files[i].color, files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, files[i].type));
             }
             if (files[i].type === "image" && wordlTask.type === "loot") {
                 // изменить генерацию монет
-                myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "rgba(67,169,61,0.15)", files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, "font"));
-                myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, "image"));
+                mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "rgba(67,169,61,0.15)", files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, "font"));
+                mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "assets/coin.png", files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, "image"));
             }
             if (files[i].type === "image" && wordlTask.type === "dispense") {
                 // изменить генерацию монет
-                myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "rgba(67,169,61,0.15)", files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, "font"));
-                //  myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", files[i].x * myConfig.windowMap.x, files[i].y * myConfig.windowMap.y, "image"));
+                mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "rgba(67,169,61,0.15)", files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, "font"));
+                //  mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "assets/coin.png", files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, "image"));
             }
         }
-    // /console.log(myConfig)
+    // /console.log(mapPropertis)
 };
 
 module.exports.worldgen = worldgen;

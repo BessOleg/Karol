@@ -1,5 +1,5 @@
 'use strict';
-let {KarelCodeManag, myConfig, htmlObj} = require("./storage");
+let {KarelCodeManag, mapPropertis, htmlObj} = require("./storage");
 let {Controls} = require("./control");
 let {myGameArea} = require("./worldCanvas");
 let {crashWith} = require("./Crash");
@@ -32,7 +32,7 @@ let karol = {
         }
         /* if (KarelCodeManag.error <= 3) {
              token();
-             if (myConfig.coin.height === 0) {
+             if (mapPropertis.coin.height === 0) {
                  alert("You WIN! \n  You error: " + KarelCodeManag.error)
              } else {
                  //  alert("not my mony!")
@@ -48,21 +48,21 @@ let karol = {
         if (crashWith() === 0) {
             return true
         }
-        switch (myConfig.levelTurn) {
+        switch (mapPropertis.levelTurn) {
             case 2:
-                if (myConfig.myPlayr.y + myConfig.myPlayr.height === myGameArea.canvas.height) {
+                if (mapPropertis.myPlayr.y + mapPropertis.myPlayr.height === myGameArea.canvas.height) {
                     return true
                 } else return false;
             case 1:
-                if (myConfig.myPlayr.x === 0) {
+                if (mapPropertis.myPlayr.x === 0) {
                     return true
                 } else return false;
             case 0:
-                if (myConfig.myPlayr.y === 0) {
+                if (mapPropertis.myPlayr.y === 0) {
                     return true
                 } else return false;
             case 3:
-                if (myConfig.myPlayr.x + myConfig.myPlayr.width === myGameArea.canvas.width) {
+                if (mapPropertis.myPlayr.x + mapPropertis.myPlayr.width === myGameArea.canvas.width) {
                     return true
                 } else return false
 
@@ -73,21 +73,21 @@ let karol = {
 };
 
 let stepDisplay = () => {
-    let saveX = myConfig.windowMap.x, saveY = myConfig.windowMap.y;
+    let saveX = mapPropertis.windowMap.x, saveY = mapPropertis.windowMap.y;
     htmlObj.KarolLoad.value = 0;
     htmlObj.KarolLoad.max = KarelCodeManag.stepKerrol.length;
     htmlObj.KarolLoad.low = KarelCodeManag.stepKerrol.length * 0.3;
     htmlObj.KarolLoad.high = KarelCodeManag.stepKerrol.length * 0.6;
     htmlObj.KarolLoad.optimum = KarelCodeManag.stepKerrol.length * 0.8;
     KarelCodeManag.timeset = 0;
-    myConfig.myPlayr.x = 0;
-    myConfig.myPlayr.y = 0;
-    myConfig.levelTurn = 2;
+    mapPropertis.myPlayr.x = 0;
+    mapPropertis.myPlayr.y = 0;
+    mapPropertis.levelTurn = 2;
     let windwoflag = true;
     console.log(KarelCodeManag.stepKerrol)
     KarelCodeManag.stepKerrol.forEach((item) => {
         let gokarol = setTimeout(() => {
-            if (saveX !== myConfig.windowMap.x && saveY !== myConfig.windowMap.y) {
+            if (saveX !== mapPropertis.windowMap.x && saveY !== mapPropertis.windowMap.y) {
                 windwoflag = false;
                 return;
             }
@@ -97,10 +97,10 @@ let stepDisplay = () => {
             } else
                 htmlObj.KarolLoad.value += 1;
             if (item.turn !== undefined) {
-                myConfig.levelTurn = item.turn;
+                mapPropertis.levelTurn = item.turn;
             } else if (item.x !== undefined) {
-                myConfig.myPlayr.x = item.x;
-                myConfig.myPlayr.y = item.y;
+                mapPropertis.myPlayr.x = item.x;
+                mapPropertis.myPlayr.y = item.y;
             } else if (item.token) {
                 if (item.token === "up") {
                     Controls.upToken()
@@ -115,16 +115,16 @@ let stepDisplay = () => {
 };
 
 htmlObj.KarolSubmit.click(() => {
-    myConfig.myPlayr.x = 0;
-    myConfig.myPlayr.y = 0;
-    myConfig.levelTurn = 2;
+    mapPropertis.myPlayr.x = 0;
+    mapPropertis.myPlayr.y = 0;
+    mapPropertis.levelTurn = 2;
     let iterfase = $("#interface");
     KarelCodeManag.stepKerrol = [];
     iterfase.css("pointerEvents", "none");
     KarelCodeManag.error = 0;
     KarelCodeManag.timeflag = true;
-    // KarelCodeManag.stepKerrol.push({turn: myConfig.levelTurn})
-    // KarelCodeManag.stepKerrol.push({x: myConfig.myPlayr.x, y: myConfig.myPlayr.y})
+    // KarelCodeManag.stepKerrol.push({turn: mapPropertis.levelTurn})
+    // KarelCodeManag.stepKerrol.push({x: mapPropertis.myPlayr.x, y: mapPropertis.myPlayr.y})
     let code = $("textarea").val();
     try {
         eval(code);// метод реализации из текста в код

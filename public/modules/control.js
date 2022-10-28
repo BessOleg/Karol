@@ -1,45 +1,45 @@
 'use strict';
 let {component} = require("./entity");
-let {myConfig, KarelCodeManag} = require("./storage");
+let {mapPropertis, KarelCodeManag} = require("./storage");
 
 
 
 let Controls = {
     move: () => {
-        switch (myConfig.levelTurn) {
+        switch (mapPropertis.levelTurn) {
             case 0:
-                myConfig.myPlayr.speedY = -myConfig.windowMap.y;// up
+                mapPropertis.myPlayr.speedY = -mapPropertis.windowMap.y;// up
                 break;
             case 2:
-                myConfig.myPlayr.speedY = myConfig.windowMap.y;// down
+                mapPropertis.myPlayr.speedY = mapPropertis.windowMap.y;// down
                 break;
             case 1:
-                myConfig.myPlayr.speedX = -myConfig.windowMap.x;// left
+                mapPropertis.myPlayr.speedX = -mapPropertis.windowMap.x;// left
                 break;
             case 3:
-                myConfig.myPlayr.speedX = myConfig.windowMap.x; // right
+                mapPropertis.myPlayr.speedX = mapPropertis.windowMap.x; // right
                 break;
         }
-        myConfig.myPlayr.newPos();
+        mapPropertis.myPlayr.newPos();
         Controls.clearmove();
     },
     turn: () => {
-        myConfig.levelTurn++;
-        if (myConfig.levelTurn > 3) {
-            myConfig.levelTurn = 0;
+        mapPropertis.levelTurn++;
+        if (mapPropertis.levelTurn > 3) {
+            mapPropertis.levelTurn = 0;
         }
         if (KarelCodeManag.timeflag) {
-            KarelCodeManag.stepKerrol.push({turn: myConfig.levelTurn});
+            KarelCodeManag.stepKerrol.push({turn: mapPropertis.levelTurn});
         }
     },
     clearmove: () => {
-        myConfig.myPlayr.speedX = 0;
-        myConfig.myPlayr.speedY = 0;
+        mapPropertis.myPlayr.speedX = 0;
+        mapPropertis.myPlayr.speedY = 0;
     },
     checkToken: (search) => {
         let checket = false;
-        myConfig.wallMass.forEach(item => {
-            if (item.type === search && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
+        mapPropertis.wallMass.forEach(item => {
+            if (item.type === search && item.x === mapPropertis.myPlayr.x && item.y === mapPropertis.myPlayr.y) {
                 checket = true;
                 return checket;
             }
@@ -48,25 +48,25 @@ let Controls = {
     },
     token: () => {
         if (!Controls.checkToken("image")) {
-            myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", myConfig.myPlayr.x, myConfig.myPlayr.y, "image"));
+            mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "assets/coin.png", mapPropertis.myPlayr.x, mapPropertis.myPlayr.y, "image"));
         } else {
-            myConfig.wallMass.splice(Controls.searchElement("image"), 1);
+            mapPropertis.wallMass.splice(Controls.searchElement("image"), 1);
         }
     },
     downToken: () => {
         if (!Controls.checkToken("image")) {
-            myConfig.wallMass.push(new component(myConfig.windowMap.x, myConfig.windowMap.y, "assets/coin.png", myConfig.myPlayr.x, myConfig.myPlayr.y, "image"));
+            mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "assets/coin.png", mapPropertis.myPlayr.x, mapPropertis.myPlayr.y, "image"));
         }
     },
     upToken: () => {
         if (Controls.searchElement("image") !== false) {
-            myConfig.wallMass.splice(Controls.searchElement("image"), 1);
+            mapPropertis.wallMass.splice(Controls.searchElement("image"), 1);
         }
     },
     searchElement: (search) => {
         let ind = false;
-        myConfig.wallMass.forEach((item, index) => {
-            if (item.type === search && item.x === myConfig.myPlayr.x && item.y === myConfig.myPlayr.y) {
+        mapPropertis.wallMass.forEach((item, index) => {
+            if (item.type === search && item.x === mapPropertis.myPlayr.x && item.y === mapPropertis.myPlayr.y) {
                 return ind = index;
             }
         });

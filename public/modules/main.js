@@ -1,27 +1,10 @@
 'use strict';
 let {myGameArea, startGame} = require("./worldCanvas");
-let {myConfig, htmlObj} = require("./storage");
+let {mapPropertis} = require("./storage");
+let {request} = require ("./inquiry")
 
-
-// load map of server
-let selload = () => {
-    return new Promise((resolve) => {
-        let xhr = new XMLHttpRequest();
-        xhr.open('POST', '/file');
-        xhr.onload = () => {
-            resolve(JSON.parse(xhr.responseText));
-        };
-        htmlObj.restart.removeAttr('disabled');
-        xhr.send();
-    });
-};
-
-
-window.onload = () => {
-    selload().then(data => {
-        myConfig.mapObj.mapArray = data;
-        // console.log(myConfig);
-        startGame();
-    });
+window.onload = async () => {
+    mapPropertis.mapObj.mapArray = await request("/file")
+    startGame();
     myGameArea.myWindowMap();
-};
+}

@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 //app.set('view cache', true);
 
 //app.use(express.static('public'));// добавить кеширование
-app.use(express.static(__dirname + '/public', {maxAge: 0}));
+app.use(express.static(__dirname + '/public', {maxAge: myTime}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -17,13 +17,13 @@ app.use(express.urlencoded({extended: false}));
 
 //console.log(__dirname);
 app.get('/', function (req, res) {
-    res.render('monit.ejs');
+    res.status(200).render('monit.ejs');
 
 });
-app.post('/file', (req, res) => {
+app.get('/file', (req, res) => {
     var rawdata = fs.readFileSync('./public/maps/levels.json');
     var level = JSON.parse(rawdata);
-    res.send(JSON.stringify(level));
+    res.status(200).send(JSON.stringify(level));
 });
 
 app.use((req, res) => {

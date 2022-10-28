@@ -10,7 +10,7 @@ let htmlObj = {
     KarolSubmit: $("#gocode")
 };
 //rename myConfig to mapPropertis
-let myConfig = {
+let mapPropertis = {
     myPlayr: '', coin: '', myScore: '',//обекти игри
     windowMap: {x: '', y: ''},// розммери сетки
     wallMass: [], // масив стен и обектов
@@ -48,5 +48,5 @@ module.exports = {
     "wordlTask": wordlTask,
     "KarelCodeManag": KarelCodeManag,
     "playrTurn": playrTurn,
-    "myConfig": myConfig
+    "mapPropertis": mapPropertis
 }
