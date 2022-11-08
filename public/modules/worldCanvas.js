@@ -4,7 +4,6 @@ let {render} = require("./render");
 let {worldgen} = require("./worldLoad");
 
 
-
 let myGameArea = {
     canvas: $("#Canvas")[0],
     myWindowMap: () => {

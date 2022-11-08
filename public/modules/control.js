@@ -3,7 +3,6 @@ let {component} = require("./entity");
 let {mapPropertis, KarelCodeManag} = require("./storage");
 
 
-
 let Controls = {
     move: () => {
         switch (mapPropertis.levelTurn) {
@@ -22,8 +21,7 @@ let Controls = {
         }
         mapPropertis.myPlayr.newPos();
         Controls.clearmove();
-    },
-    turn: () => {
+    }, turn: () => {
         mapPropertis.levelTurn++;
         if (mapPropertis.levelTurn > 3) {
             mapPropertis.levelTurn = 0;
@@ -31,12 +29,10 @@ let Controls = {
         if (KarelCodeManag.timeflag) {
             KarelCodeManag.stepKerrol.push({turn: mapPropertis.levelTurn});
         }
-    },
-    clearmove: () => {
+    }, clearmove: () => {
         mapPropertis.myPlayr.speedX = 0;
         mapPropertis.myPlayr.speedY = 0;
-    },
-    checkToken: (search) => {
+    }, checkToken: (search) => {
         let checket = false;
         mapPropertis.wallMass.forEach(item => {
             if (item.type === search && item.x === mapPropertis.myPlayr.x && item.y === mapPropertis.myPlayr.y) {
@@ -45,25 +41,21 @@ let Controls = {
             }
         });
         return checket;
-    },
-    token: () => {
+    }, token: () => {
         if (!Controls.checkToken("image")) {
             mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "assets/coin.png", mapPropertis.myPlayr.x, mapPropertis.myPlayr.y, "image"));
         } else {
             mapPropertis.wallMass.splice(Controls.searchElement("image"), 1);
         }
-    },
-    downToken: () => {
+    }, downToken: () => {
         if (!Controls.checkToken("image")) {
             mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "assets/coin.png", mapPropertis.myPlayr.x, mapPropertis.myPlayr.y, "image"));
         }
-    },
-    upToken: () => {
+    }, upToken: () => {
         if (Controls.searchElement("image") !== false) {
             mapPropertis.wallMass.splice(Controls.searchElement("image"), 1);
         }
-    },
-    searchElement: (search) => {
+    }, searchElement: (search) => {
         let ind = false;
         mapPropertis.wallMass.forEach((item, index) => {
             if (item.type === search && item.x === mapPropertis.myPlayr.x && item.y === mapPropertis.myPlayr.y) {

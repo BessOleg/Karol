@@ -15,8 +15,7 @@ let karol = {
             // console.log(KarelCodeManag.error)
             Controls.move();
         }
-    },
-    turnLeft: () => {
+    }, turnLeft: () => {
         if (KarelCodeManag.error <= 3) {
             Controls.turn();
         }
@@ -25,8 +24,7 @@ let karol = {
         if (KarelCodeManag.error <= 3) {
             KarelCodeManag.stepKerrol.push({token: "down"})
         }
-    },
-    flipCoin: () => {
+    }, flipCoin: () => {
         if (KarelCodeManag.error <= 3) {
             KarelCodeManag.stepKerrol.push({token: "up"})
         }
@@ -39,11 +37,7 @@ let karol = {
                  return false;
              }
          }*/
-    },
-    checkCoin: () => Controls.checkToken("image"),
-    checkTabCoin: () => Controls.checkToken("font")
-    ,
-    // check object
+    }, checkCoin: () => Controls.checkToken("image"), checkTabCoin: () => Controls.checkToken("font"), // check object
     checkWall: () => {
         if (crashWith() === 0) {
             return true
@@ -94,8 +88,7 @@ let stepDisplay = () => {
             if (!windwoflag) {
                 clearInterval(gokarol);
                 return;
-            } else
-                htmlObj.KarolLoad.value += 1;
+            } else htmlObj.KarolLoad.value += 1;
             if (item.turn !== undefined) {
                 mapPropertis.levelTurn = item.turn;
             } else if (item.x !== undefined) {

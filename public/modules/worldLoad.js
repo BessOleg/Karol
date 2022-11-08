@@ -3,7 +3,6 @@ let {mapPropertis, wordlTask, playrTurn} = require("./storage");
 let {component} = require("./entity");
 
 
-
 let worldgen = () => {
 
     //console.log(component())

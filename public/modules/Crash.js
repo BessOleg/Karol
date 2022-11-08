@@ -2,7 +2,7 @@
 let {mapPropertis} = require("./storage")
 
 
-function crashWith () {
+function crashWith() {
     let myleft = mapPropertis.myPlayr.x;
     let myright = mapPropertis.myPlayr.x + (mapPropertis.myPlayr.width);
     let mytop = mapPropertis.myPlayr.y;
