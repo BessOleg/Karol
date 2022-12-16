@@ -1,0 +1,25 @@
+.conteiner {
+    margin: 5px auto;
+    display: flex;
+    justify-content: center;
+
+}
+
+.code > h4, .code > h5 {
+    text-align: center;
+}
+
+textarea {
+    height: 80%;
+}
+.code{
+    margin: 5px;
+    background-color: #9fd377;
+    border-style: ridge;
+    padding: 5px;
+}
+
+#codePush {
+    justify-content: center;
+    display: grid;
+}

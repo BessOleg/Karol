@@ -1,0 +1,10 @@
+canvas {
+    display: block;
+    margin: 5px auto;
+    background-color: rgba(211, 255, 255, 0.82);
+    border-style: groove;
+}
+
+#loading{
+    width: 100%;
+}

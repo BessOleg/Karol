@@ -1,0 +1,17 @@
+#interface{
+    /*float: right;*/
+    width: 160px;
+    height: 200px;
+    margin: 5px;
+    background-color: rgba(255, 85, 142, 0.78);
+    border-style: ridge;
+    padding: 5px;
+    border-radius: 20px 0px 0px 20px;
+
+}
+
+#im {
+    width: 32px;
+    height: 32px;
+    vertical-align: bottom;
+}
