@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import "./myHeader.css";
-import {startGame} from "../js/worldCanvas";
+import {myGameArea, startGame} from "../js/worldCanvas";
+import {htmlObj, tool} from "../js/storage";
+
 
 const MyHeader = () => {
+    let lvlSel = useRef()
+    useEffect(() => {
+        htmlObj.lvlSelect = lvlSel.current;
+        //console.log(lvlSel.current)
+    }, [])
+
+    // htmlObj.lvlSelect = lvlSel.current;
+    // console.log(htmlObj.lvlSelect.val())
     return (
         <header>
                 <button id="start" onClick={()=>{
@@ -11,7 +21,7 @@ const MyHeader = () => {
                 }}>Restart</button>
             {/*input onChange="showFile(this)"*/}
 
-                <select name="user_profile_color_1" >
+                <select name="user_profile_color_1" ref={lvlSel} >
                     <option value="1">level</option>
                     <option value="2">level</option>
                     <option value="3">level</option>

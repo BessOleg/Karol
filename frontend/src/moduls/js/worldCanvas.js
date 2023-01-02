@@ -17,7 +17,7 @@ let myGameArea = {
     },
     start: () => {
         if (mapPropertis.mapObj.mapFlag === false) {
-            // console.log(myGameArea);
+           // console.log(mapPropertis.idexSelect);
             myGameArea.canvas.width = mapPropertis.mapObj.mapArray[mapPropertis.idexSelect][0].width * mapPropertis.windowMap.x;
             myGameArea.canvas.height = mapPropertis.mapObj.mapArray[mapPropertis.idexSelect][0].height * mapPropertis.windowMap.y;
         }
@@ -47,7 +47,8 @@ let myGameArea = {
     },
     newlvl: () => {
         alert("You WIN! \n  You error: " + KarelCodeManag.error);
-        htmlObj.lvlSelect.value = mapPropertis.idexSelect >= htmlObj.lvlSelect.length ? 1 : htmlObj.lvlSelect.value + 1;
+        htmlObj.lvlSelect.value = (mapPropertis.idexSelect + 2) > htmlObj.lvlSelect.length ? 1 : mapPropertis.idexSelect + 2;
+
         startGame();
         startGame();
     },
@@ -67,8 +68,9 @@ let myGameArea = {
 
 };
 let startGame = () => {
+   // console.log(htmlObj.lvlSelect.value);
     if (mapPropertis.boolstart) {
-        mapPropertis.idexSelect = parseInt($("select").val()) - 1;
+        mapPropertis.idexSelect = htmlObj.lvlSelect.value - 1;
         worldgen();
         myGameArea.start();
 
