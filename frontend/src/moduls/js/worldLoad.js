@@ -63,6 +63,7 @@ let generation = (files) => {
                 // изменить генерацию монет
                 mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "rgba(67,169,61,0.15)", files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, "font"));
                 mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, coinIm, files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, "image"));
+
             }
             if (files[i].type === "image" && wordlTask.type === "dispense") {
                 // изменить генерацию монет

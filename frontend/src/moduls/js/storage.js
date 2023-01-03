@@ -44,12 +44,21 @@ let wordlTask = {
 };
 
 let tool = {
-    canvas:"",
-    ctx:"",
+    canvas: "",
+    ctx: "",
+}
+let game = {
+    1: require("../assets/shers/blue.png"),
+    2: require("../assets/shers/red.png"),
+    3: require("../assets/shers/dark.png"),
+    4: require("../assets/shers/green.png"),
+    5: require("../assets/shers/withe.png"),
+    6: require("../assets/shers/yellow.png")
 }
 
 module.exports = {
-    "tool":tool,
+    "game": game,
+    "tool": tool,
     "htmlObj": htmlObj,
     "wordlTask": wordlTask,
     "KarelCodeManag": KarelCodeManag,

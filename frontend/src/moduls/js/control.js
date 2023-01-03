@@ -1,6 +1,6 @@
 'use strict';
 let {component} = require("./entity");
-let {mapPropertis, KarelCodeManag} = require("./storage");
+let {mapPropertis, KarelCodeManag, game} = require("./storage");
 let coinIm = require("../assets/coin.png")
 
 
@@ -50,7 +50,10 @@ let Controls = {
     },
     token: () => {
         if (!Controls.checkToken("image")) {
-            mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, coinIm, mapPropertis.myPlayr.x, mapPropertis.myPlayr.y, "image"));
+           // mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, coinIm, mapPropertis.myPlayr.x, mapPropertis.myPlayr.y, "image"));
+            mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, game[Math.floor((Math.random() * 6+1))], mapPropertis.myPlayr.x, mapPropertis.myPlayr.y, "image"));
+
+
         } else {
             mapPropertis.wallMass.splice(Controls.searchElement("image"), 1);
         }

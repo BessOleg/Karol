@@ -1,11 +1,10 @@
-// let {myGameArea} = require("./worldCanvas")
 'use strict'
-var $ = require("jquery")
+let $ = require("jquery")
 //jquery add
-let {KarelCodeManag, mapPropertis,tool} = require('./storage')
+let {KarelCodeManag, mapPropertis, tool} = require('./storage')
 let {crashWith} = require('./Crash')
 
-function component(width, height, color, x, y, type) {
+function component(width, height, color, x, y, type, key) {
     this.type = type
     this.width = width
     this.height = height
@@ -13,6 +12,7 @@ function component(width, height, color, x, y, type) {
     this.speedY = 0
     this.x = x
     this.y = y
+    this.key = key
 
     if (this.type === 'image') {
         this.image = new Image()

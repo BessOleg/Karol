@@ -1,11 +1,13 @@
 'use strict'
-import React, {useEffect, useMemo, useRef} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import {tool, htmlObj} from "../js/storage";
 import {myGameArea} from "../js/worldCanvas"
+import useScreenSize from "../js/useScreenSize";
 
 require("./canvas.css")
 
 const KarolWindow = () => {
+    const { width, height } = useScreenSize();
     let canRef = useRef()
     let loadRef = useRef()
     useEffect(() => {
@@ -18,7 +20,7 @@ const KarolWindow = () => {
         if (myGameArea.canvas !== null) {
             myGameArea.myWindowMap();
         }
-    }, [window.innerWidth, window.innerHeight]);
+    }, [width, height]);
 
     return (
         <div>
@@ -27,5 +29,7 @@ const KarolWindow = () => {
         </div>
     );
 };
+
+
 //<button onClick={() => CanvasLoad()}>load</button>
 export default KarolWindow;
