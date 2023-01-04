@@ -8,11 +8,9 @@ const MyHeader = () => {
     let lvlSel = useRef()
     useEffect(() => {
         htmlObj.lvlSelect = lvlSel.current;
-        //console.log(lvlSel.current)
+
     }, [])
 
-    // htmlObj.lvlSelect = lvlSel.current;
-    // console.log(htmlObj.lvlSelect.val())
     return (
         <header>
                 <button id="start" onClick={()=>{

@@ -23,7 +23,7 @@ let myGameArea = {
         mapPropertis.boolstart = false;
         htmlObj.restart.innerText = "stop";
       //  myGameArea.hardGame();
-        myGameArea.hardGame()
+       // myGameArea.hardGame()
     },
     clear: () => {
         myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
@@ -68,7 +68,6 @@ let myGameArea = {
 
 };
 let startGame = () => {
-    // console.log(htmlObj.lvlSelect.value);
     if (mapPropertis.boolstart) {
         mapPropertis.idexSelect = htmlObj.lvlSelect.value - 1;
         worldgen();

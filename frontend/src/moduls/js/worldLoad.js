@@ -1,14 +1,13 @@
 'use strict';
-let {mapPropertis, wordlTask, playrTurn} = require("./storage");
+let {mapPropertis, wordlTask, playrTurn, tool} = require("./storage");
 let {component} = require("./entity");
 let $ = require("jquery");
 let coinIm =require("../assets/coin.png")
+let backgraund = require("../assets/fone.png");
 //jquery add
 
 
 let worldgen = () => {
-
-    //console.log(component())
     if (mapPropertis.mapObj.mapFlag === true) {
         maps(mapPropertis.mapObj.mapArray, mapPropertis);
     } else {
@@ -17,7 +16,6 @@ let worldgen = () => {
 };
 
 let maps = (map) => {
-    // console.log(mapPropertis);
     mapPropertis.myPlayr = new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, playrTurn.down, 0, 0, "image");
     mapPropertis.myScore = new component("15px", "Consolas", "black", 60, 30, "text");
     //mapPropertis.coin = new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "assets/coin.png", 0, 0, "image");
@@ -63,7 +61,7 @@ let generation = (files) => {
                 // изменить генерацию монет
                 mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "rgba(67,169,61,0.15)", files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, "font"));
                 mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, coinIm, files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, "image"));
-
+                mapPropertis["fone"] = new component((mapPropertis.mapObj.mapArray[mapPropertis.idexSelect][0].width * mapPropertis.windowMap.x)+2, (mapPropertis.mapObj.mapArray[mapPropertis.idexSelect][0].height * mapPropertis.windowMap.y)+2, backgraund,-1, -1, "image");
             }
             if (files[i].type === "image" && wordlTask.type === "dispense") {
                 // изменить генерацию монет
@@ -71,7 +69,6 @@ let generation = (files) => {
                 //  mapPropertis.wallMass.push(new component(mapPropertis.windowMap.x, mapPropertis.windowMap.y, "assets/coin.png", files[i].x * mapPropertis.windowMap.x, files[i].y * mapPropertis.windowMap.y, "image"));
             }
         }
-    // /console.log(mapPropertis)
 };
 
 module.exports.worldgen = worldgen;

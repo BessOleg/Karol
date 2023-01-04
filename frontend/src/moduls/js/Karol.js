@@ -12,7 +12,7 @@ let karol = {
             if (karol.checkWall() === true) {
                 KarelCodeManag.error += 1;
             }
-            // console.log(KarelCodeManag.error)
+
             Controls.move();
         }
     },
@@ -84,7 +84,7 @@ let stepDisplay = () => {
     mapPropertis.myPlayr.y = 0;
     mapPropertis.levelTurn = 2;
     let windwoflag = true;
-    console.log(KarelCodeManag.stepKerrol)
+
     KarelCodeManag.stepKerrol.forEach((item) => {
         let gokarol = setTimeout(() => {
             if (saveX !== mapPropertis.windowMap.x && saveY !== mapPropertis.windowMap.y) {

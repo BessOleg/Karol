@@ -41,15 +41,11 @@ function component(width, height, color, x, y, type, key) {
         }
     }
     this.newPos = () => {
-        //console.log(this);
         if (mapPropertis.wallMass.length > 0) {
             if (this.speedX !== 0) {
-                //console.log("crashX")
                 this.x += crashWith()
             }
             if (this.speedY !== 0) {
-                //  console.log("crashY")
-                // Controls.crashWith();
                 this.y += crashWith()
             }
         } else {

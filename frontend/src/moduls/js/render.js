@@ -3,6 +3,9 @@ let {mapPropertis, playrTurn, wordlTask} = require('./storage')
 
 let updateGameArea = (world) => {
     world.clear() // чистим поле
+    mapPropertis.fone.update()
+    mapPropertis.fone.height = (mapPropertis.mapObj.mapArray[mapPropertis.idexSelect][0].height * mapPropertis.windowMap.y) + 3;
+    mapPropertis.fone.width = (mapPropertis.mapObj.mapArray[mapPropertis.idexSelect][0].width * mapPropertis.windowMap.x) + 3;
     world.netupdate()// обновляем сетку
     if (mapPropertis.wallMass.length > 0) // обновляем все елементы если они есть
     {
