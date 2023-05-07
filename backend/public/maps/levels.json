@@ -1,0 +1,189 @@
+[
+  [
+    {
+      "name": "easy 1",
+      "width": 5,
+      "height": 5,
+      "task":1,
+      "typeTask":"loot",
+      "info": "збери копійку"
+    },
+    {
+      "width": 3,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 0,
+      "height": 3,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "name": "easy 2",
+      "width": 5,
+      "height": 5,
+      "task":3,
+      "typeTask":"dispense",
+      "info": "Розкидай копійки"
+    },
+    {
+      "width": 3,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 0,
+      "height": 3,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 3,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "type": "image"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "image"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "name": "easy 3",
+      "width": 5,
+      "height": 5,
+      "task":1,
+      "typeTask":"loot",
+      "info": "збери копійку"
+    },
+    {
+      "width": 3,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 3,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 0,
+      "height": 3,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 3,
+      "type": "cube"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "image"
+    }
+  ],
+  [
+    {
+      "name": "easy 4",
+      "width": 5,
+      "height": 5,
+      "task":2,
+      "typeTask":"dispense",
+      "info": "Розкидай копійки"
+    },
+    {
+      "width": 3,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 3,
+      "y": 2,
+      "type": "cube"
+    },
+    {
+      "width": 0,
+      "height": 2,
+      "color": "red",
+      "x": 4,
+      "y": 3,
+      "type": "cube"
+    },
+    {
+      "width": 0,
+      "height": 3,
+      "color": "red",
+      "x": 1,
+      "y": 1,
+      "type": "cube"
+    },
+    {
+      "width": 2,
+      "height": 0,
+      "color": "red",
+      "x": 1,
+      "y": 3,
+      "type": "cube"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "image"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "image"
+    }
+  ]
+]
